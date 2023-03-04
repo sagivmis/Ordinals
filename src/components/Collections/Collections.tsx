@@ -1,12 +1,10 @@
 import React, { useContext } from "react"
 import "./collections.css"
-import Input from "@mui/material/Input"
-import searchIcon from "../../assets/searchIcon.png"
-import InputAdornment from "@mui/material/InputAdornment"
 import { GlobalContext, IGlobalContext } from "../../context/GlobalContext"
 import { Link } from "react-router-dom"
-import { DataGrid, GridRowsProp, GridColDef } from "@mui/x-data-grid"
+import { DataGrid, GridColDef } from "@mui/x-data-grid"
 import Avatar from "@mui/material/Avatar"
+import SearchCollection from "../SearchCollection"
 
 const collectionsColumns: GridColDef[] = [
   {
@@ -64,21 +62,8 @@ const Collections = () => {
       <div className='back-btn-container'>
         <Link to='/'>BACK</Link>
       </div>
-      <div className='search-container'>
-        <Input
-          // id='input-with-icon-textfield'
-          // label='TextField'
 
-          className='search-collection-input'
-          startAdornment={
-            <InputAdornment position='start'>
-              <img src={searchIcon} alt='search' />
-            </InputAdornment>
-          }
-          disableUnderline
-          placeholder='Search collections...'
-        />
-      </div>
+      <SearchCollection />
       <DataGrid
         rows={collections}
         columns={collectionsColumns}
