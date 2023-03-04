@@ -4,8 +4,8 @@ import { GlobalContext, IGlobalContext } from "../../context/GlobalContext"
 const HighlightedCollections = () => {
   const {
     highlightedCollections,
-    selectedCollection,
-    setSelectedCollection,
+    selectedCollectionId,
+    setSelectedCollectionId,
     updateSelectedCollection
   } = useContext(GlobalContext) as IGlobalContext
 
@@ -15,7 +15,7 @@ const HighlightedCollections = () => {
         <div
           className='collection'
           onClick={() => {
-            updateSelectedCollection(collection.name)
+            updateSelectedCollection(collection.id)
           }}
         >
           <span className='collection-name-home'>{collection.name}</span>
