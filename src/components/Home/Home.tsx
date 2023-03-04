@@ -48,7 +48,7 @@ const Home = () => {
               updateSelectedCollection(collection.name)
             }}
           >
-            <span className='collection-name'>{collection.name}</span>
+            <span className='collection-name-home'>{collection.name}</span>
             <img
               src={collection.image}
               alt='collectionImage'
