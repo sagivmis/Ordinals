@@ -1,20 +1,19 @@
-import React from "react"
+import React, { useContext, useEffect } from "react"
 import homeBackground from "../../assets/HOME-back.png"
-import collection1 from "../../assets/image 1.png"
-import collection2 from "../../assets/image 2.png"
-import collection3 from "../../assets/image 3.png"
-import collection4 from "../../assets/image 4.png"
 import walletIcon from "../../assets/walletIcon.png"
 import Button from "@mui/material/Button"
 import "./home.css"
-const highlightedCollections = [
-  collection1,
-  collection2,
-  collection3,
-  collection4
-]
+import { GlobalContext, IGlobalContext } from "../../context/GlobalContext"
+import { Link } from "react-router-dom"
 
 const Home = () => {
+  const {
+    highlightedCollections,
+    selectedCollection,
+    setSelectedCollection,
+    updateSelectedCollection
+  } = useContext(GlobalContext) as IGlobalContext
+
   return (
     <div className='home-container'>
       <div className='landing'>
@@ -24,7 +23,7 @@ const Home = () => {
               Home
             </Button>
             <Button variant='text' className='nav-btn'>
-              Collections
+              <Link to='/collections'>Collections</Link>
             </Button>
           </div>
           <Button variant='contained' className='wallet-btn'>
@@ -42,11 +41,16 @@ const Home = () => {
         />
       </div>
       <div className='highlighted-collections'>
-        {highlightedCollections.map((collectionImage) => (
-          <div className='collection'>
-            <span className='collection-name'>name</span>
+        {highlightedCollections.map((collection) => (
+          <div
+            className='collection'
+            onClick={() => {
+              updateSelectedCollection(collection.name)
+            }}
+          >
+            <span className='collection-name'>{collection.name}</span>
             <img
-              src={collectionImage}
+              src={collection.image}
               alt='collectionImage'
               className='collection-image'
             />

@@ -86,3 +86,8 @@ button.nav-btn:hover {
   width: 370px;
   text-align: left;
 }
+
+a {
+  color: unset;
+  text-decoration: unset;
+}
