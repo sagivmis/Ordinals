@@ -5,6 +5,7 @@ import { Link } from "react-router-dom"
 import { DataGrid, GridColDef } from "@mui/x-data-grid"
 import Avatar from "@mui/material/Avatar"
 import SearchCollection from "../SearchCollection"
+import { useNavigate } from "react-router-dom"
 
 const collectionsColumns: GridColDef[] = [
   {
@@ -55,7 +56,10 @@ const collectionsColumns: GridColDef[] = [
 ]
 
 const Collections = () => {
-  const { collections } = useContext(GlobalContext) as IGlobalContext
+  let navigate = useNavigate()
+  const { collections, setSelectedCollectionId } = useContext(
+    GlobalContext
+  ) as IGlobalContext
 
   return (
     <div className='collections-container'>
@@ -69,6 +73,12 @@ const Collections = () => {
         columns={collectionsColumns}
         className='collections-list'
         disableColumnFilter
+        onRowClick={(params) => {
+          console.log(params.row.data)
+          console.log(params.row.name)
+          setSelectedCollectionId(params.row.id)
+          navigate("/collection")
+        }}
       />
     </div>
   )

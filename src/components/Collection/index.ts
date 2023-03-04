@@ -1,3 +1,3 @@
-import CollectionType from "./Collection"
+import Collection from "./Collection"
 
-export default CollectionType
+export default Collection
