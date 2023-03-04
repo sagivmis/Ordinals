@@ -1,9 +1,12 @@
-import React, { useState } from "react"
-import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom"
+import React from "react"
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom"
 import "./App.css"
 import Home from "../Home"
 import GlobalContextProvider from "../../context/GlobalContext"
+import Collection from "../Collection"
 import Collections from "../Collections"
+
+//TODO: -Collection -CollectionItem
 
 function App() {
   return (
@@ -13,7 +16,7 @@ function App() {
           <Routes>
             <Route path='/' element={<Home />} />
             <Route path='/collections' element={<Collections />} />
-            {/* <Route path='/about' element={About} /> */}
+            <Route path='/collection' element={<Collection />} />
           </Routes>
         </div>
       </GlobalContextProvider>
