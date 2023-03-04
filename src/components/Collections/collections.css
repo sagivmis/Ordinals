@@ -1,0 +1,53 @@
+.collections-container {
+  background-color: #e7eae6;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  gap: 20px;
+  flex-direction: column;
+  align-items: center;
+}
+
+div.search-collection-input {
+  width: 100%;
+}
+
+.search-container {
+  width: 20%;
+  padding: 1rem 15%;
+  display: flex;
+  justify-content: center;
+  background-color: #d9d9d9;
+  margin-top: 30px;
+  border-radius: 12px;
+  border: 0.1em #514d4d solid;
+}
+
+.back-btn-container {
+  position: absolute;
+  left: 2%;
+  top: 2%;
+}
+
+.collections-list {
+  width: 100%;
+}
+
+.collection-row {
+  display: flex;
+  flex-direction: row;
+  position: relative;
+  left: 5%;
+  width: 90%;
+  justify-content: space-between;
+}
+
+span.collection-name {
+  background-color: unset;
+  /* width: 10%;
+  text-align: left; */
+}
+
+.collection-name .collection-fp .collection-volume .collection-total-supply {
+  flex: 1;
+}
