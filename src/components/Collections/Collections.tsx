@@ -74,10 +74,11 @@ const Collections = () => {
         className='collections-list'
         disableColumnFilter
         onRowClick={(params) => {
-          console.log(params.row.data)
-          console.log(params.row.name)
+          console.log(params.row.id)
+
+          //  change to hash when provided
           setSelectedCollectionId(params.row.id)
-          navigate("/collection")
+          navigate(`../collection/${params.row.id}`)
         }}
       />
     </div>

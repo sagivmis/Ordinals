@@ -1,4 +1,6 @@
-import React from "react"
+import React, { useContext, useEffect } from "react"
+import { useNavigate } from "react-router-dom"
+import { GlobalContext, IGlobalContext } from "../../context/GlobalContext"
 import { CollectionType } from "../../types"
 import "./collection-items.css"
 
@@ -8,6 +10,10 @@ interface ICollectionItems {
 
 const CollectionItems = (props: ICollectionItems) => {
   const { currentCollection } = props
+  let navigate = useNavigate()
+  const { setSelectedItemId, selectedItemId } = useContext(
+    GlobalContext
+  ) as IGlobalContext
 
   return (
     <div className='collection-items-container'>
@@ -19,6 +25,13 @@ const CollectionItems = (props: ICollectionItems) => {
             src={item.image}
             alt={item.owner}
             className='collection-item-image'
+            onClick={() => {
+              setSelectedItemId({
+                id: item.id,
+                collectionId: currentCollection.id
+              })
+              navigate(`./${item.id}`)
+            }}
           />
         ))}
       </div>
