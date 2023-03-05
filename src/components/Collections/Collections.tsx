@@ -4,7 +4,7 @@ import { GlobalContext, IGlobalContext } from "../../context/GlobalContext"
 import { Link } from "react-router-dom"
 import { DataGrid, GridColDef } from "@mui/x-data-grid"
 import Avatar from "@mui/material/Avatar"
-import SearchCollection from "../SearchCollection"
+import OrdinalSearch from "../SearchCollection"
 import { useNavigate } from "react-router-dom"
 
 const collectionsColumns: GridColDef[] = [
@@ -67,7 +67,7 @@ const Collections = () => {
         <Link to='/'>BACK</Link>
       </div>
 
-      <SearchCollection />
+      <OrdinalSearch mode='collection' />
       <DataGrid
         rows={collections}
         columns={collectionsColumns}
