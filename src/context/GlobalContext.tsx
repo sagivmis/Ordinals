@@ -3,7 +3,7 @@ import ordinalsPunks from "../assets/image 1.png"
 import phoenixParrots from "../assets/image 3.png"
 import ordinalsPenguins from "../assets/image 4.png"
 import deGods from "../assets/image 2.png"
-import { CollectionType } from "../types"
+import { CollectionType, SelectedItemType } from "../types"
 
 export interface IGlobalContext {
   collections: CollectionType[]
@@ -12,6 +12,8 @@ export interface IGlobalContext {
   setHighlightedCollections: Dispatch<React.SetStateAction<CollectionType[]>>
   selectedCollectionId: number | null
   setSelectedCollectionId: Dispatch<React.SetStateAction<number | null>>
+  selectedItemId: SelectedItemType | null
+  setSelectedItemId: Dispatch<React.SetStateAction<SelectedItemType | null>>
   updateSelectedCollection: (newCollectionId: number) => void
   removeSelectedCollection: () => void
 }
@@ -112,6 +114,83 @@ const dummyPunksData = [
   },
   {
     id: 3,
+    price: 2,
+    history: [
+      { price: 0.1, date: "date", from: "0x8484848" },
+      { price: 0.15, date: "date", from: "0x8482333" },
+      { price: 0.23, date: "date", from: "0x8661233" }
+    ],
+    owner: "0x121212",
+    image: ordinalsPunks
+  },
+  {
+    id: 4,
+    price: 2,
+    history: [
+      { price: 0.1, date: "date", from: "0x8484848" },
+      { price: 0.15, date: "date", from: "0x8482333" },
+      { price: 0.23, date: "date", from: "0x8661233" }
+    ],
+    owner: "0x121212",
+    image: ordinalsPunks
+  },
+  {
+    id: 5,
+    price: 2,
+    history: [
+      { price: 0.1, date: "date", from: "0x8484848" },
+      { price: 0.15, date: "date", from: "0x8482333" },
+      { price: 0.23, date: "date", from: "0x8661233" }
+    ],
+    owner: "0x121212",
+    image: ordinalsPunks
+  },
+  {
+    id: 6,
+    price: 2,
+    history: [
+      { price: 0.1, date: "date", from: "0x8484848" },
+      { price: 0.15, date: "date", from: "0x8482333" },
+      { price: 0.23, date: "date", from: "0x8661233" }
+    ],
+    owner: "0x121212",
+    image: ordinalsPunks
+  },
+  {
+    id: 7,
+    price: 2,
+    history: [
+      { price: 0.1, date: "date", from: "0x8484848" },
+      { price: 0.15, date: "date", from: "0x8482333" },
+      { price: 0.23, date: "date", from: "0x8661233" }
+    ],
+    owner: "0x121212",
+    image: ordinalsPunks
+  },
+  {
+    id: 8,
+    price: 2,
+    history: [
+      { price: 0.1, date: "date", from: "0x8484848" },
+      { price: 0.15, date: "date", from: "0x8482333" },
+      { price: 0.23, date: "date", from: "0x8661233" }
+    ],
+    owner: "0x121212",
+    image: ordinalsPunks
+  },
+  {
+    id: 9,
+    price: 2,
+    history: [
+      { price: 0.1, date: "date", from: "0x8484848" },
+      { price: 0.15, date: "date", from: "0x8482333" },
+      { price: 0.23, date: "date", from: "0x8661233" }
+    ],
+    owner: "0x121212",
+    image: ordinalsPunks
+  },
+  {
+    id: 10,
     price: 2,
     history: [
       { price: 0.1, date: "date", from: "0x8484848" },
@@ -243,6 +322,9 @@ const GlobalContextProvider: React.FC<Props> = ({ children }) => {
     number | null
   >(null)
 
+  const [selectedItemId, setSelectedItemId] = useState<SelectedItemType | null>(
+    null
+  )
   const updateSelectedCollection = (newCollectionId: number) => {
     setSelectedCollectionId(newCollectionId)
   }
@@ -260,6 +342,8 @@ const GlobalContextProvider: React.FC<Props> = ({ children }) => {
         setHighlightedCollections,
         selectedCollectionId,
         setSelectedCollectionId,
+        selectedItemId,
+        setSelectedItemId,
         updateSelectedCollection,
         removeSelectedCollection
       }}

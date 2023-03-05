@@ -24,3 +24,5 @@ export type CollectionType = {
 }
 
 export type CollectionInfo = { field: string; value: number | string }
+
+export type SelectedItemType = { id: number; collectionId: number }
