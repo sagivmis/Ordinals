@@ -1,13 +1,10 @@
-import React, { useContext, useEffect } from "react"
+import React, { useContext } from "react"
 import { GlobalContext, IGlobalContext } from "../../context/GlobalContext"
 
 const HighlightedCollections = () => {
-  const {
-    highlightedCollections,
-    selectedCollectionId,
-    setSelectedCollectionId,
-    updateSelectedCollection
-  } = useContext(GlobalContext) as IGlobalContext
+  const { highlightedCollections, updateSelectedCollection } = useContext(
+    GlobalContext
+  ) as IGlobalContext
 
   return (
     <div className='highlighted-collections'>

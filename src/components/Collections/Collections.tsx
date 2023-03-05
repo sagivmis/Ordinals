@@ -4,7 +4,7 @@ import { GlobalContext, IGlobalContext } from "../../context/GlobalContext"
 import { Link } from "react-router-dom"
 import { DataGrid, GridColDef } from "@mui/x-data-grid"
 import Avatar from "@mui/material/Avatar"
-import OrdinalSearch from "../SearchCollection"
+import OrdinalSearch from "../OrdinalSearch"
 import { useNavigate } from "react-router-dom"
 
 const collectionsColumns: GridColDef[] = [
