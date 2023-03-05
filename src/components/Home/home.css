@@ -74,7 +74,8 @@ button.nav-btn {
 }
 
 button.nav-btn:hover {
-  background-color: rgba(200, 200, 200, 0.2);
+  background-color: unset;
+  color: white;
 }
 
 .home-landing-text {
