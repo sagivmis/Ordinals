@@ -1,0 +1,36 @@
+.collection-items {
+  display: grid;
+  align-items: center;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  /* flex-direction: row; */
+  gap: 26px;
+  width: 90%;
+  max-width: 90%;
+  justify-content: space-between;
+  margin-top: 40px;
+}
+
+.collection-items-container {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  flex: 1;
+  align-items: center;
+}
+
+.collection-item-image {
+  background-color: #fff;
+  width: 190px;
+  height: 190px;
+}
+
+.items-title {
+  position: relative;
+  align-self: flex-start;
+  left: 2%;
+}
+
+.seperator {
+  width: 100%;
+  border: 0.1em solid #000000;
+}
