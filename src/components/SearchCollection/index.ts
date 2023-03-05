@@ -1,3 +1,3 @@
-import SearchCollection from "./SearchCollection"
+import OrdinalSearch from "./SearchCollection"
 
-export default SearchCollection
+export default OrdinalSearch
