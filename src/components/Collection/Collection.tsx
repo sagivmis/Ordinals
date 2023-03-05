@@ -1,7 +1,8 @@
-import React, { useContext, useEffect, useState } from "react"
+import React, { useContext, useEffect, useMemo, useState } from "react"
 import { Link } from "react-router-dom"
 import { GlobalContext, IGlobalContext } from "../../context/GlobalContext"
 import { CollectionInfo, CollectionType } from "../../types"
+import OrdinalSearch from "../SearchCollection"
 import "./collection.css"
 
 const Collection = () => {
@@ -15,8 +16,24 @@ const Collection = () => {
     name: "",
     totalSupply: 0,
     volume: 0,
-    collectionOwner: "PhoenixCo"
+    collectionOwner: ""
   })
+
+  const collectionInfo: CollectionInfo[] = useMemo(
+    () => [
+      { field: "Floor Price", value: currentCollection.floorPrice },
+      { field: "Supply", value: currentCollection.totalSupply },
+      { field: "Owners", value: currentCollection.totalSupply },
+      { field: "Listed", value: currentCollection.totalSupply },
+      { field: "Total Volume", value: currentCollection.volume }
+    ],
+    [
+      currentCollection.floorPrice,
+      currentCollection.totalSupply,
+      currentCollection.volume
+    ]
+  )
+
   useEffect(() => {
     setCurrentCollection(
       collections.filter(
@@ -25,13 +42,6 @@ const Collection = () => {
     )
   }, [collections, selectedCollectionId])
 
-  const collectionInfo: CollectionInfo[] = [
-    { field: "Floor Price", value: currentCollection.floorPrice },
-    { field: "Supply", value: currentCollection.totalSupply },
-    { field: "Owners", value: currentCollection.totalSupply },
-    { field: "Listed", value: currentCollection.totalSupply },
-    { field: "Total Volume", value: currentCollection.volume }
-  ]
   return (
     <div className='collection-container'>
       <div className='back-btn-container'>
@@ -67,8 +77,21 @@ const Collection = () => {
             )
           })}
         </div>
+        <OrdinalSearch mode='item' />
       </div>
-      <div className='collection-items-container'></div>
+      <div className='collection-items-container'>
+        <span className='items-title'>Items:</span>
+        <span className='seperator' />
+        <div className='collection-items'>
+          {currentCollection.data?.map((item) => (
+            <img
+              src={item.image}
+              alt={item.owner}
+              className='collection-item-image'
+            />
+          ))}
+        </div>
+      </div>
     </div>
   )
 }
