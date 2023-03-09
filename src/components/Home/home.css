@@ -51,6 +51,10 @@
   justify-content: space-between;
 }
 
+.navigation button {
+  font-family: inherit;
+}
+
 button.wallet-btn {
   display: flex;
   background-color: #fff;
