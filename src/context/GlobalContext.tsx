@@ -1,21 +1,20 @@
-import React, { Dispatch, useState } from "react"
+import React, { Dispatch, SetStateAction, useEffect, useState } from "react"
 import ordinalsPunks from "../assets/image 1.png"
 import phoenixParrots from "../assets/image 3.png"
 import ordinalsPenguins from "../assets/image 4.png"
 import deGods from "../assets/image 2.png"
-import { CollectionType, SelectedItemType } from "../types"
+import { CollectionItemType, CollectionType } from "../types"
 
 export interface IGlobalContext {
   collections: CollectionType[]
   setCollections: Dispatch<React.SetStateAction<CollectionType[]>>
   highlightedCollections: CollectionType[]
   setHighlightedCollections: Dispatch<React.SetStateAction<CollectionType[]>>
-  selectedCollectionId: number | null
-  setSelectedCollectionId: Dispatch<React.SetStateAction<number | null>>
-  selectedItemId: SelectedItemType | null
-  setSelectedItemId: Dispatch<React.SetStateAction<SelectedItemType | null>>
-  updateSelectedCollection: (newCollectionId: number) => void
-  removeSelectedCollection: () => void
+  currentCollection: CollectionType
+  setCurrentCollection: Dispatch<SetStateAction<CollectionType>>
+  currentItem: CollectionItemType | undefined
+  setCurrentItem: Dispatch<SetStateAction<CollectionItemType | undefined>>
+  updateSelectedCollection: (newCollectionId: CollectionType) => void
 }
 
 interface Props {
@@ -322,34 +321,34 @@ const GlobalContextProvider: React.FC<Props> = ({ children }) => {
   const [collections, setCollections] =
     useState<CollectionType[]>(dummyCollections)
 
-  const [selectedCollectionId, setSelectedCollectionId] = useState<
-    number | null
-  >(null)
+  const [currentCollection, setCurrentCollection] = useState<CollectionType>({
+    id: 0,
+    floorPrice: 0,
+    image: "",
+    name: "",
+    totalSupply: 0,
+    volume: 0,
+    collectionOwner: "",
+    data: []
+  })
+  const [currentItem, setCurrentItem] = useState<CollectionItemType>()
 
-  const [selectedItemId, setSelectedItemId] = useState<SelectedItemType | null>(
-    null
-  )
-  const updateSelectedCollection = (newCollectionId: number) => {
-    setSelectedCollectionId(newCollectionId)
-  }
-
-  const removeSelectedCollection = () => {
-    setSelectedCollectionId(null)
+  const updateSelectedCollection = (newCollection: CollectionType) => {
+    setCurrentCollection(newCollection)
   }
 
   return (
     <GlobalContext.Provider
       value={{
+        currentCollection,
+        currentItem,
+        setCurrentCollection,
+        setCurrentItem,
         collections,
         setCollections,
         highlightedCollections,
         setHighlightedCollections,
-        selectedCollectionId,
-        setSelectedCollectionId,
-        selectedItemId,
-        setSelectedItemId,
-        updateSelectedCollection,
-        removeSelectedCollection
+        updateSelectedCollection
       }}
     >
       {children}
