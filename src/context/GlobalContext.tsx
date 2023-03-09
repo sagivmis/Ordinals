@@ -22,46 +22,6 @@ interface Props {
   children: React.ReactNode
 }
 
-const highlightedCollectionsData: CollectionType[] = [
-  {
-    id: 0,
-    name: "Ordinals Punks",
-    floorPrice: 2.15,
-    volume: 125,
-    totalSupply: 100,
-    image: ordinalsPunks,
-    collectionOwner: "Ordinals ©"
-  },
-
-  {
-    id: 1,
-    name: "Phoenix Parrots",
-    floorPrice: 0.15,
-    volume: 5,
-    totalSupply: 999,
-    image: phoenixParrots,
-    collectionOwner: "PhoenixCo"
-  },
-  {
-    id: 2,
-    name: "Ordinals Penguins",
-    floorPrice: 3,
-    volume: 2.36,
-    totalSupply: 333,
-    image: ordinalsPenguins,
-    collectionOwner: "Ordinals ©"
-  },
-  {
-    id: 3,
-    name: "DeGods",
-    floorPrice: 0.63,
-    volume: 333,
-    totalSupply: 50,
-    image: deGods,
-    collectionOwner: "DeGods com"
-  }
-]
-
 const dummyPhoenixData = [
   {
     id: 1,
@@ -261,6 +221,50 @@ const dummyPenguinsData = [
     ],
     owner: "0x121212",
     image: ordinalsPenguins
+  }
+]
+
+const highlightedCollectionsData: CollectionType[] = [
+  {
+    id: 0,
+    name: "Ordinals Punks",
+    floorPrice: 2.15,
+    volume: 125,
+    totalSupply: 100,
+    image: ordinalsPunks,
+    data: dummyPunksData,
+    collectionOwner: "Ordinals ©"
+  },
+
+  {
+    id: 1,
+    name: "Phoenix Parrots",
+    floorPrice: 0.15,
+    volume: 5,
+    totalSupply: 999,
+    image: phoenixParrots,
+    data: dummyPhoenixData,
+    collectionOwner: "PhoenixCo"
+  },
+  {
+    id: 2,
+    name: "Ordinals Penguins",
+    floorPrice: 3,
+    volume: 2.36,
+    totalSupply: 333,
+    image: ordinalsPenguins,
+    data: dummyPenguinsData,
+    collectionOwner: "Ordinals ©"
+  },
+  {
+    id: 3,
+    name: "DeGods",
+    floorPrice: 0.63,
+    volume: 333,
+    totalSupply: 50,
+    image: deGods,
+    data: dummyDeGodsData,
+    collectionOwner: "DeGods com"
   }
 ]
 

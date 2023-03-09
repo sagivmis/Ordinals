@@ -4,7 +4,7 @@ export type ItemHistoryRow = {
   from: string
 }
 
-export type CollectionItem = {
+export type CollectionItemType = {
   id: number
   price: number
   history: ItemHistoryRow[]
@@ -19,7 +19,7 @@ export type CollectionType = {
   volume: number
   totalSupply: number
   image: string
-  data?: CollectionItem[]
+  data: CollectionItemType[]
   collectionOwner: string
 }
 
