@@ -1,4 +1,10 @@
-export type ItemHistoryRow = {
+export type ItemHistory = {
+  price: number
+  date: string
+  from: string
+}
+
+export type ItemOffer = {
   price: number
   date: string
   from: string
@@ -7,9 +13,10 @@ export type ItemHistoryRow = {
 export type CollectionItemType = {
   id: number
   price: number
-  history: ItemHistoryRow[]
+  history: ItemHistory[]
   owner: string
   image: string
+  offers?: ItemOffer[]
 }
 
 export type CollectionType = {

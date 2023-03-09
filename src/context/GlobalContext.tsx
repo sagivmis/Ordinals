@@ -21,7 +21,7 @@ interface Props {
   children: React.ReactNode
 }
 
-const dummyPhoenixData = [
+const dummyPhoenixData: CollectionItemType[] = [
   {
     id: 1,
     price: 2,
@@ -52,7 +52,7 @@ const dummyPhoenixData = [
     image: phoenixParrots
   }
 ]
-const dummyPunksData = [
+const dummyPunksData: CollectionItemType[] = [
   {
     id: 1,
     price: 2,
@@ -69,7 +69,12 @@ const dummyPunksData = [
       { price: 0.33, date: "date", from: "0x8661233" }
     ],
     owner: "0x121212",
-    image: ordinalsPunks
+    image: ordinalsPunks,
+    offers: [
+      { date: "date", from: "sagiv", price: 10 },
+      { date: "date", from: "sagiv", price: 10 },
+      { date: "date", from: "sagiv", price: 10 }
+    ]
   },
   {
     id: 3,
@@ -160,7 +165,7 @@ const dummyPunksData = [
     image: ordinalsPunks
   }
 ]
-const dummyDeGodsData = [
+const dummyDeGodsData: CollectionItemType[] = [
   {
     id: 1,
     price: 2,
@@ -191,7 +196,7 @@ const dummyDeGodsData = [
     image: deGods
   }
 ]
-const dummyPenguinsData = [
+const dummyPenguinsData: CollectionItemType[] = [
   {
     id: 1,
     price: 2,
