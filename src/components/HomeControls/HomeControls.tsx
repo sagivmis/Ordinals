@@ -8,7 +8,7 @@ const HomeControls = () => {
     <div className='controls'>
       <div className='navigation'>
         <Button variant='text' className='nav-btn'>
-          Home
+          <Link to='/'> Home</Link>
         </Button>
         <Button variant='text' className='nav-btn'>
           <Link to='/collections'>Collections</Link>
