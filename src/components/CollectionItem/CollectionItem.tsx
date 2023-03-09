@@ -1,51 +1,34 @@
-import React, { useContext, useEffect, useRef, useState } from "react"
-import { useSearchParams, useParams, Link } from "react-router-dom"
+import React, { useContext, useEffect } from "react"
+import { useParams, Link } from "react-router-dom"
 import { GlobalContext, IGlobalContext } from "../../context/GlobalContext"
-import { CollectionItemType, CollectionType } from "../../types"
 import "./collection-item.css"
 
 const CollectionItem = () => {
   let { collectionId, itemId } = useParams()
-  const [currentCollection, setCurrentCollection] = useState<CollectionType>({
-    id: 0,
-    floorPrice: 0,
-    image: "",
-    name: "",
-    totalSupply: 0,
-    volume: 0,
-    collectionOwner: "",
-    data: []
-  })
-  const [currentItem, setCurrentItem] = useState<CollectionItemType>()
-  const { collections } = useContext(GlobalContext) as IGlobalContext
-  const currentCollectionId = useRef<number>()
-  const currentItemId = useRef<number>()
+
+  const {
+    currentCollection,
+    currentItem,
+    setCurrentItem,
+    setCurrentCollection,
+    collections
+  } = useContext(GlobalContext) as IGlobalContext
 
   useEffect(() => {
-    if (collectionId) currentCollectionId.current = parseInt(collectionId)
-    if (itemId) currentItemId.current = parseInt(itemId)
-  }, [collectionId, itemId])
+    setCurrentItem(
+      currentCollection.data.filter(
+        (item) => itemId && item.id === parseInt(itemId)
+      )[0]
+    )
+  }, [currentCollection.data, itemId, setCurrentItem])
 
   useEffect(() => {
     setCurrentCollection(
       collections.filter(
-        (collection) => collection.id === currentCollectionId.current
+        (collection) => collectionId && collection.id === parseInt(collectionId)
       )[0]
     )
-  }, [collections])
-
-  useEffect(() => {
-    setCurrentItem(
-      // eslint-disable-next-line array-callback-return
-      () => {
-        const currentI = currentCollection.data.filter(
-          (item) => item.id === currentItemId.current
-        )[0]
-
-        return currentI
-      }
-    )
-  }, [collections, currentCollection.data, setCurrentItem])
+  }, [collectionId, collections, setCurrentCollection])
 
   return (
     <div className='collection-item-container'>
