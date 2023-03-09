@@ -50,6 +50,7 @@
 
 .current-price-value {
   align-self: flex-end;
+  font-weight: 500;
 }
 
 button.transaction-btn {
