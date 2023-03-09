@@ -27,6 +27,52 @@
   flex: 1;
   border: 1px solid #c7b9b9;
   border-radius: 19px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.current-price-stack {
+  display: flex;
+  flex-direction: row;
+  width: 80%;
+  height: 50%;
+  justify-content: space-between;
+  align-items: center;
+  font-family: "Space Grotesk", sans-serif;
+}
+
+.current-price {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 0.5em;
+}
+
+.current-price-value {
+  align-self: flex-end;
+}
+
+button.transaction-btn {
+  text-transform: unset;
+  font-family: inherit;
+  padding: 1em 3em;
+  border-radius: 30px;
+  height: 45px;
+  color: black;
+}
+
+button.buy-btn {
+  background-color: #7582f2;
+}
+
+button.buy-btn:hover {
+  background-color: #4658ee;
+}
+button.offer-btn {
+  background-color: #e0e3ff;
+}
+button.offer-btn:hover {
+  background-color: #adb5ff;
 }
 
 .collection-item-history-n-offers {

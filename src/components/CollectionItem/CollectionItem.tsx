@@ -1,3 +1,4 @@
+import { Button } from "@mui/material"
 import { DataGrid, GridColDef, GridOverlay } from "@mui/x-data-grid"
 import React, { useContext, useEffect } from "react"
 import { useParams, Link } from "react-router-dom"
@@ -79,7 +80,22 @@ const CollectionItem = () => {
               Owned by <span>{currentItem?.owner}</span>
             </h6>
           </div>
-          <div className='current-price-container'></div>
+          <div className='current-price-container'>
+            <div className='current-price-stack'>
+              <div className='current-price'>
+                <span className='current-price-label'>Current Price</span>
+                <span className='current-price-value'>
+                  {`${currentItem?.price} BTC`}
+                </span>
+              </div>
+              <Button variant='contained' className='transaction-btn buy-btn'>
+                Buy
+              </Button>
+              <Button variant='contained' className='transaction-btn offer-btn'>
+                Make Offer
+              </Button>
+            </div>
+          </div>
           <div className='collection-item-history-n-offers'>
             {currentItem?.offers && (
               <DataGrid
