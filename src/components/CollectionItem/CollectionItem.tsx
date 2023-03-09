@@ -88,12 +88,7 @@ const CollectionItem = () => {
                 className='offers-list'
                 disableColumnFilter
                 getRowId={(row) => `${row.from}/${row.price}`}
-                // components={{
-                //   NoRowsOverlay: () => <></>,
-                //   Pagination: () => <></>
-                // }}
                 hideFooter
-                // slots={{ footer: () => <></> }}
               />
             )}
             {/* <DataGrid
