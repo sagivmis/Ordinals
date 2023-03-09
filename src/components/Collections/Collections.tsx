@@ -57,7 +57,7 @@ const collectionsColumns: GridColDef[] = [
 
 const Collections = () => {
   let navigate = useNavigate()
-  const { collections, setSelectedCollectionId } = useContext(
+  const { collections, setCurrentCollection } = useContext(
     GlobalContext
   ) as IGlobalContext
 
@@ -74,10 +74,12 @@ const Collections = () => {
         className='collections-list'
         disableColumnFilter
         onRowClick={(params) => {
-          console.log(params.row.id)
-
           //  change to hash when provided
-          setSelectedCollectionId(params.row.id)
+          setCurrentCollection(
+            collections.filter(
+              (collection) => collection.id === parseInt(params.row.id)
+            )[0]
+          )
           navigate(`../collection/${params.row.id}`)
         }}
       />

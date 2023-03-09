@@ -1,15 +1,13 @@
-import React, { useMemo } from "react"
-import { CollectionInfoType, CollectionType } from "../../types"
+import React, { useContext, useMemo } from "react"
+import { GlobalContext, IGlobalContext } from "../../context/GlobalContext"
+import { CollectionInfoType } from "../../types"
 import OrdinalSearch from "../OrdinalSearch"
 import "./collection-info.css"
 
-interface ICollectionInfo {
-  currentCollection: CollectionType
-}
+interface ICollectionInfo {}
 
 const CollectionInfo = (props: ICollectionInfo) => {
-  const { currentCollection } = props
-
+  const { currentCollection } = useContext(GlobalContext) as IGlobalContext
   const collectionInfo: CollectionInfoType[] = useMemo(
     () => [
       { field: "Floor Price", value: currentCollection.floorPrice },

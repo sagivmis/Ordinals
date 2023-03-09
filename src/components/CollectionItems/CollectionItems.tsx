@@ -1,17 +1,13 @@
-import React, { useContext, useEffect } from "react"
+import React, { useContext } from "react"
 import { useNavigate } from "react-router-dom"
 import { GlobalContext, IGlobalContext } from "../../context/GlobalContext"
-import { CollectionType } from "../../types"
 import "./collection-items.css"
 
-interface ICollectionItems {
-  currentCollection: CollectionType
-}
+interface ICollectionItems {}
 
 const CollectionItems = (props: ICollectionItems) => {
-  const { currentCollection } = props
   let navigate = useNavigate()
-  const { setSelectedItemId, selectedItemId } = useContext(
+  const { setCurrentItem, currentCollection } = useContext(
     GlobalContext
   ) as IGlobalContext
 
@@ -20,17 +16,18 @@ const CollectionItems = (props: ICollectionItems) => {
       <span className='items-title'>Items:</span>
       <span className='seperator' />
       <div className='collection-items'>
-        {currentCollection.data?.map((item) => (
+        {currentCollection.data?.map((currentCollectionItem) => (
           <img
-            src={item.image}
-            alt={item.owner}
+            src={currentCollectionItem.image}
+            alt={currentCollectionItem.owner}
             className='collection-item-image'
             onClick={() => {
-              setSelectedItemId({
-                id: item.id,
-                collectionId: currentCollection.id
-              })
-              navigate(`./${item.id}`)
+              setCurrentItem(
+                currentCollection.data.filter(
+                  (item) => item.id === currentCollectionItem.id
+                )[0]
+              )
+              navigate(`./${currentCollectionItem.id}`)
             }}
           />
         ))}
