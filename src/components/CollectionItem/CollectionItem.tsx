@@ -5,12 +5,22 @@ import { GlobalContext, IGlobalContext } from "../../context/GlobalContext"
 import "./collection-item.css"
 
 const offersColumns: GridColDef[] = [
-  { field: "price", headerName: "Price", flex: 1 },
+  {
+    field: "price",
+    headerName: "Price",
+    flex: 1,
+    valueFormatter: (params) => `${params.value} BTC`
+  },
   { field: "from", headerName: "From", flex: 1 }
 ]
 
 const historyColumns: GridColDef[] = [
-  { field: "price", headerName: "Price", flex: 1 },
+  {
+    field: "price",
+    headerName: "Price",
+    flex: 1,
+    valueFormatter: (params) => `${params.value} BTC`
+  },
   { field: "from", headerName: "From", flex: 1 }
 ]
 
