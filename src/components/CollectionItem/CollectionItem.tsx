@@ -1,7 +1,18 @@
+import { DataGrid, GridColDef, GridOverlay } from "@mui/x-data-grid"
 import React, { useContext, useEffect } from "react"
 import { useParams, Link } from "react-router-dom"
 import { GlobalContext, IGlobalContext } from "../../context/GlobalContext"
 import "./collection-item.css"
+
+const offersColumns: GridColDef[] = [
+  { field: "price", headerName: "Price", flex: 1 },
+  { field: "from", headerName: "From", flex: 1 }
+]
+
+const historyColumns: GridColDef[] = [
+  { field: "price", headerName: "Price", flex: 1 },
+  { field: "from", headerName: "From", flex: 1 }
+]
 
 const CollectionItem = () => {
   let { collectionId, itemId } = useParams()
@@ -59,7 +70,32 @@ const CollectionItem = () => {
             </h6>
           </div>
           <div className='current-price-container'></div>
-          <div className='collection-item-history-n-offers'></div>
+          <div className='collection-item-history-n-offers'>
+            {currentItem?.offers && (
+              <DataGrid
+                columns={offersColumns}
+                rows={currentItem?.offers}
+                className='offers-list'
+                disableColumnFilter
+                getRowId={(row) => `${row.from}/${row.price}`}
+                // components={{
+                //   NoRowsOverlay: () => <></>,
+                //   Pagination: () => <></>
+                // }}
+                hideFooter
+                // slots={{ footer: () => <></> }}
+              />
+            )}
+            {/* <DataGrid
+              columns={historyColumns}
+              rows={currentItem?.history ? currentItem?.history : []}
+              className='history-list'
+              disableColumnFilter
+              getRowId={(row) => `${row.from}/${row.price}`}
+              hideFooter
+            /> */}
+            {/* add a way to change from history mode to offers mode */}
+          </div>
         </div>
       </div>
     </div>

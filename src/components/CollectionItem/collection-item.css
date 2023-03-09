@@ -34,6 +34,8 @@
   border: 1px solid #c7b9b9;
   border-radius: 19px;
   flex: 3;
+  display: flex;
+  flex-direction: column;
 }
 
 .collection-item-image-container {
@@ -68,4 +70,17 @@ h2.collection-item-name {
 h6.collection-item-owner {
   margin: 0;
   font-size: 16px;
+}
+
+.MuiDataGrid-root.history-list {
+  flex: 2;
+}
+
+.MuiDataGrid-root.offers-list {
+  flex: 1;
+}
+
+.MuiDataGrid-root.history-list,
+.MuiDataGrid-root.offers-list {
+  border: unset;
 }
