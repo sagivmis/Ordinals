@@ -29,6 +29,11 @@ div.search-collection-input {
   top: 2%;
 }
 
+.profile-btn-container {
+  position: absolute;
+  right: 2%;
+  top: 2%;
+}
 .collections-list {
   width: 100%;
 }
