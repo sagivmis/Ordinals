@@ -33,3 +33,16 @@ export type CollectionType = {
 export type CollectionInfoType = { field: string; value: number | string }
 
 export type SelectedItemType = { id: number; collectionId: number }
+
+export type UserProfile = {
+  address: string
+  collected: CollectionItemType[]
+  name?: string
+  image?: string
+}
+
+export type UniSatBalance = {
+  confirmed: number
+  unconfirmed: number
+  total: number
+}
