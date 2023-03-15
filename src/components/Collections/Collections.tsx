@@ -66,6 +66,9 @@ const Collections = () => {
       <div className='back-btn-container'>
         <Link to='/'>BACK</Link>
       </div>
+      <div className='profile-btn-container'>
+        <Link to={`/profile`}>PROFILE</Link>
+      </div>
 
       <OrdinalSearch mode='collection' />
       <DataGrid

@@ -57,6 +57,9 @@ const CollectionItem = () => {
       <div className='back-btn-container'>
         <Link to={`../${collectionId}`}>BACK</Link>
       </div>
+      <div className='profile-btn-container'>
+        <Link to={`/profile`}>PROFILE</Link>
+      </div>
       <div className='collection-item'>
         <div className='collection-item-image-container'>
           {/* image is blurry because of the stretch in css 'collection-item-image' rule,
@@ -103,7 +106,7 @@ const CollectionItem = () => {
                 rows={currentItem?.offers}
                 className='offers-list'
                 disableColumnFilter
-                getRowId={(row) => `${row.from}/${row.price}`}
+                getRowId={(row) => `${row.from}/${Math.random() * row.price}`}
                 hideFooter
               />
             )}

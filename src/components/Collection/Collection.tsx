@@ -31,6 +31,9 @@ const Collection = () => {
       <div className='back-btn-container'>
         <Link to='/collections'>BACK</Link>
       </div>
+      <div className='profile-btn-container'>
+        <Link to={`/profile`}>PROFILE</Link>
+      </div>
       <CollectionInfo />
       <CollectionItems />
     </div>
