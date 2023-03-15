@@ -3,7 +3,7 @@ import ordinalsPunks from "../assets/image 1.png"
 import phoenixParrots from "../assets/image 3.png"
 import ordinalsPenguins from "../assets/image 4.png"
 import deGods from "../assets/image 2.png"
-import { CollectionItemType, CollectionType } from "../types"
+import { CollectionItemType, CollectionType, UserProfile } from "../types"
 
 export interface IGlobalContext {
   collections: CollectionType[]
@@ -14,6 +14,8 @@ export interface IGlobalContext {
   setCurrentCollection: Dispatch<SetStateAction<CollectionType>>
   currentItem: CollectionItemType | undefined
   setCurrentItem: Dispatch<SetStateAction<CollectionItemType | undefined>>
+  userProfile: UserProfile
+  setUserProfile: Dispatch<SetStateAction<UserProfile>>
   updateSelectedCollection: (newCollectionId: CollectionType) => void
 }
 
@@ -342,6 +344,45 @@ const GlobalContextProvider: React.FC<Props> = ({ children }) => {
     setCurrentCollection(newCollection)
   }
 
+  const [userProfile, setUserProfile] = useState<UserProfile>({
+    address: "0xBALI",
+    collected: [
+      {
+        id: 3,
+        price: 2,
+        history: [
+          { price: 0.1, date: "date", from: "0x8484848" },
+          { price: 0.15, date: "date", from: "0x8482333" },
+          { price: 0.23, date: "date", from: "0x8661233" }
+        ],
+        owner: "0x121212",
+        image: ordinalsPenguins
+      },
+      {
+        id: 2,
+        price: 3,
+        history: [
+          { price: 0.2, date: "date", from: "0x8484848" },
+          { price: 0.25, date: "date", from: "0x8482333" },
+          { price: 0.33, date: "date", from: "0x8661233" }
+        ],
+        owner: "0x121212",
+        image: phoenixParrots
+      },
+      {
+        id: 2,
+        price: 3,
+        history: [
+          { price: 0.2, date: "date", from: "0x8484848" },
+          { price: 0.25, date: "date", from: "0x8482333" },
+          { price: 0.33, date: "date", from: "0x8661233" }
+        ],
+        owner: "0x121212",
+        image: deGods
+      }
+    ]
+  })
+
   return (
     <GlobalContext.Provider
       value={{
@@ -353,7 +394,9 @@ const GlobalContextProvider: React.FC<Props> = ({ children }) => {
         setCollections,
         highlightedCollections,
         setHighlightedCollections,
-        updateSelectedCollection
+        updateSelectedCollection,
+        userProfile,
+        setUserProfile
       }}
     >
       {children}
