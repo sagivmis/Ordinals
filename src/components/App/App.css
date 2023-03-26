@@ -7,6 +7,12 @@
   overflow: hidden;
   font-family: "Inter", sans-serif;
   /* font-family: "Roboto", sans-serif; */
+
+  --background-main: #e74c3c;
+  --main-darker: #c0392b;
+  --main-lighter: #eb685a;
+  --background-secondary: #d9d9d9;
+  --white: #fff;
 }
 
 .seperator {

@@ -7,7 +7,8 @@ const Landing = () => {
     <div className='landing'>
       <HomeControls />
       <span className='home-landing-text'>
-        Discover, Buy and Sell Bitcoin NFT’s
+        Discover, <span className='pad-with-color'>Buy</span> and Sell Bitcoin
+        <span className='pad-with-color'>NFT’s</span>
       </span>
       <img
         src={homeBackground}

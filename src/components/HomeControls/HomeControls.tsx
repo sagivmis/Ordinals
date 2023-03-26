@@ -17,7 +17,7 @@ const HomeControls = () => {
   return (
     <div className='controls'>
       <div className='navigation'>
-        <Button variant='text' className='nav-btn'>
+        <Button variant='text' className='nav-btn selected'>
           <Link to='/'> Home</Link>
         </Button>
         <Button variant='text' className='nav-btn'>
@@ -31,7 +31,6 @@ const HomeControls = () => {
           if (unisat) {
             try {
               const result = await unisat.requestAccounts()
-
               handleAccountsChanged(result)
             } catch (e) {
               console.log("connection failed\n", (e as any).message)
@@ -44,7 +43,9 @@ const HomeControls = () => {
       >
         <img src={walletIcon} alt='walletIcon' />
         {connected
-          ? `${address.substring(5)}......${address.substring(-5)}`
+          ? `${address.substring(0, 5)}......${address.substring(
+              address.length - 5
+            )}`
           : unisatInstalled
           ? "Connect Wallet"
           : "Install Wallet"}

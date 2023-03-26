@@ -54,24 +54,32 @@ const UniSatContextProvider: React.FC<Props> = ({ children }) => {
     return () => clearInterval(interval)
   }, [unisat, unisatInstalled])
 
-  const getBasicInfo = async () => {
+  const getBasicInfo = useCallback(async () => {
     const unisat = (window as any).unisat
     setUnisat(unisat)
     if (typeof unisat !== "undefined") {
       setUnisatInstalled(true)
     }
-    const [address] = await unisat.getAccounts()
-    setAddress(address)
+    const [newAddress] = await unisat.getAccounts()
+    if (newAddress !== address) {
+      setAddress(newAddress)
 
-    const publicKey = await unisat.getPublicKey()
-    setPublicKey(publicKey)
+      const publicKey = await unisat.getPublicKey()
+      setPublicKey(publicKey)
 
-    const balance = await unisat.getBalance()
-    setBalance(balance)
+      const balance = await unisat.getBalance()
+      setBalance(balance)
 
-    const network = await unisat.getNetwork()
-    setNetwork(network)
-  }
+      const network = await unisat.getNetwork()
+      setNetwork(network)
+    }
+  }, [address])
+
+  useEffect(() => {
+    console.log(balance)
+    console.log(network)
+    getBasicInfo()
+  }, [balance, getBasicInfo, network])
 
   const selfAccountsRef = useRef<{ accounts: string[] }>({
     accounts: []
@@ -105,15 +113,14 @@ const UniSatContextProvider: React.FC<Props> = ({ children }) => {
   }, [])
 
   useEffect(() => {
-    const unisat = (window as any).unisat
     if (unisat) {
       setUnisatInstalled(true)
     } else {
       return
     }
-    unisat.getAccounts().then((accounts: string[]) => {
-      handleAccountsChanged(accounts)
-    })
+    // unisat.getAccounts().then((accounts: string[]) => {
+    //   handleAccountsChanged(accounts)
+    // })
 
     unisat.on("accountsChanged", handleAccountsChanged)
     unisat.on("networkChanged", handleNetworkChanged)
@@ -122,7 +129,7 @@ const UniSatContextProvider: React.FC<Props> = ({ children }) => {
       unisat.removeListener("accountsChanged", handleAccountsChanged)
       unisat.removeListener("networkChanged", handleNetworkChanged)
     }
-  }, [handleAccountsChanged, handleNetworkChanged])
+  }, [handleAccountsChanged, handleNetworkChanged, unisat])
 
   return (
     <UniSatContext.Provider
