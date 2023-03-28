@@ -1,5 +1,5 @@
 .collection-item-container {
-  background-color: #e2e6e2;
+  background-color: var(--main-darker);
   width: 100%;
   height: 100vh;
   display: flex;
@@ -23,6 +23,7 @@
 
 .current-price-container {
   background-color: #d9d9d9;
+  /* background-color: #d9d9d9; */
   width: 100%;
   flex: 1;
   border: 1px solid #c7b9b9;
@@ -63,18 +64,39 @@ button.transaction-btn {
 }
 
 button.buy-btn {
-  background-color: #7582f2;
+  color: var(--white);
+  background-color: var(--main-darker);
 }
 
 button.buy-btn:hover {
-  background-color: #4658ee;
+  background-color: var(--main-lighter);
+  transition: all 0.33s;
 }
 button.offer-btn {
-  background-color: #e0e3ff;
+  color: var(--background-main);
+  background-color: var(--main-lightest);
 }
 button.offer-btn:hover {
-  background-color: #adb5ff;
+  background-color: var(--background-secondary);
+  transition: all 0.33s;
 }
+/* button.buy-btn {
+  color: var(--white);
+  background-color: var(--main-darker);
+}
+
+button.buy-btn:hover {
+  background-color: var(--main-lighter);
+  transition: all 0.33s;
+}
+button.offer-btn {
+  color: var(--background-main);
+  background-color: var(--main-lightest);
+}
+button.offer-btn:hover {
+  background-color: var(--background-secondary);
+  transition: all 0.33s;
+} */
 
 .collection-item-history-n-offers {
   background-color: #d9d9d9;

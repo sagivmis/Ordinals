@@ -8,6 +8,7 @@
 .landing {
   flex: 3;
   background-color: var(--background-secondary);
+  height: 75%;
 }
 
 .home-background {
@@ -26,6 +27,7 @@
   flex: 1;
   background-color: var(--background-main);
   gap: 5px;
+  height: 25%;
 }
 
 .collection-image {

@@ -52,7 +52,7 @@ const CollectionInfo = (props: ICollectionInfo) => {
           )
         })}
       </div>
-      <OrdinalSearch mode='item' />
+      <OrdinalSearch mode='item' open={true} setOpen={() => {}} />
     </div>
   )
 }

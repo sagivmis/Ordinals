@@ -3,14 +3,18 @@
   position: relative;
   text-align: center;
   height: 100vh;
+  max-height: 100vh;
   width: 100vw;
+  max-width: 100vw;
   overflow: hidden;
   font-family: "Inter", sans-serif;
+  display: flex;
   /* font-family: "Roboto", sans-serif; */
 
   --background-main: #e74c3c;
   --main-darker: #c0392b;
   --main-lighter: #eb685a;
+  --main-lightest: #f29f97;
   --background-secondary: #d9d9d9;
   --white: #fff;
 }

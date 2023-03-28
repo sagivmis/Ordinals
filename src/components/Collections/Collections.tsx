@@ -1,4 +1,4 @@
-import React, { useContext } from "react"
+import React, { useContext, useState } from "react"
 import "./collections.css"
 import { GlobalContext, IGlobalContext } from "../../context/GlobalContext"
 import { Link } from "react-router-dom"
@@ -61,6 +61,8 @@ const Collections = () => {
     GlobalContext
   ) as IGlobalContext
 
+  const [searchOpen, setSearchOpen] = useState(false)
+
   return (
     <div className='collections-container'>
       <div className='back-btn-container'>
@@ -70,7 +72,11 @@ const Collections = () => {
         <Link to={`/profile`}>PROFILE</Link>
       </div>
 
-      <OrdinalSearch mode='collection' />
+      <OrdinalSearch
+        mode='collection'
+        open={searchOpen}
+        setOpen={setSearchOpen}
+      />
       <DataGrid
         rows={collections}
         columns={collectionsColumns}
