@@ -1,5 +1,6 @@
 .collections-container {
   background-color: var(--main-darker);
+  color: var(--white);
   /* background-color: #e7eae6; */
   width: 100vw;
   height: 100vh;
@@ -79,8 +80,17 @@ span.collection-name {
 /* DATAGRID */
 
 div.MuiDataGrid-row[role="row"] {
+  border-top: white 0.1em solid;
   font-family: "Inter", sans-serif;
   color: var(--white);
+  cursor: pointer;
+  border: none;
+  /* box-shadow: 0px 0px 10px rgba(255, 255, 255, 0.35),
+    0px 0px 4px rgba(255, 255, 255, 0.35); */
+}
+
+div.MuiDataGrid-virtualScrollerRenderZone:first-child {
+  /* border-top: unset; */
 }
 
 div.MuiDataGrid-row[role="row"]:hover {
@@ -91,11 +101,15 @@ div.MuiDataGrid-row[role="row"]:hover {
   transition: all 0.25s ease-out;
 }
 
-div.MuiDataGrid-columnHeaderTitle {
-  color: var(--background-main);
+div.MuiDataGrid-columnHeader[role="columnheader"] {
   color: var(--white);
   font-family: "Inter", sans-serif;
   letter-spacing: 0.165em;
   font-weight: 600;
   font-size: 16px;
+  border: none;
+}
+
+div.MuiDataGrid-columnHeaders {
+  /* border: none; */
 }

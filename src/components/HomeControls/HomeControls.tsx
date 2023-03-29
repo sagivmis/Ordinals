@@ -41,7 +41,12 @@ const HomeControls = () => {
         }}
         disabled={connected}
       >
-        <img src={walletIcon} alt='walletIcon' />
+        <img
+          src={walletIcon}
+          className='wallet-icon'
+          alt='walletIcon'
+          role={!connected ? "img" : ""}
+        />
         {connected
           ? `${address.substring(0, 5)}......${address.substring(
               address.length - 5

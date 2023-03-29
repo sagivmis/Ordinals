@@ -8,7 +8,22 @@
   max-width: 90%;
   justify-content: space-between;
   margin-top: 40px;
-  overflow-y: scroll;
+  overflow-y: auto;
+}
+
+::-webkit-scrollbar {
+  background: var(--background-secondary);
+  cursor: pointer;
+  width: 0.75em;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--background-main);
+  cursor: pointer;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  filter: brightness(1.1);
 }
 
 .collection-items-container {

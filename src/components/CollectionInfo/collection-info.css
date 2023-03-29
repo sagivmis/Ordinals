@@ -8,6 +8,7 @@
 }
 
 .collection-info-container {
+  /* color: var(--white); */
   /* margin-top: 40px; */
   display: flex;
   flex-direction: column;
@@ -44,17 +45,19 @@
 .collection-total-volume {
   display: flex;
   flex-direction: column;
+  /* color: var(--white); */
 }
 .collection-floor-price-value,
 .collection-supply-value,
 .collection-owners-value,
 .collection-listed-value,
 .collection-total-volume-value {
+  /* color: var(--white); */
   font-size: 20px;
   font-weight: 600;
 }
 
 .search-item-input input {
-  color: white;
+  color: var(--background-main);
   font-family: "Inter", sans-serif;
 }

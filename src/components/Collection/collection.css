@@ -1,5 +1,6 @@
 .collection-container {
-  background-color: #e2e6e2;
+  background-color: var(--main-darker);
+  color: var(--white);
   width: 100vw;
   height: 100vh;
   display: flex;
