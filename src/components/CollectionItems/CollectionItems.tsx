@@ -1,3 +1,4 @@
+import { Button } from "@mui/material"
 import React, { useContext } from "react"
 import { useNavigate } from "react-router-dom"
 import { GlobalContext, IGlobalContext } from "../../context/GlobalContext"
@@ -21,19 +22,26 @@ const CollectionItems = (props: ICollectionItems) => {
       <span className='seperator' />
       <div className='collection-items'>
         {filteredCurrentCollection.data?.map((currentCollectionItem) => (
-          <img
-            src={currentCollectionItem.image}
-            alt={currentCollectionItem.owner}
-            className='collection-item-image'
-            onClick={() => {
-              setCurrentItem(
-                currentCollection.data.filter(
-                  (item) => item.id === currentCollectionItem.id
-                )[0]
-              )
-              navigate(`./${currentCollectionItem.id}`)
-            }}
-          />
+          <div className='current-collection-item-container'>
+            <img
+              src={currentCollectionItem.image}
+              alt={currentCollectionItem.owner}
+              className='collection-item-image'
+              onClick={() => {
+                setCurrentItem(
+                  currentCollection.data.filter(
+                    (item) => item.id === currentCollectionItem.id
+                  )[0]
+                )
+                navigate(`./${currentCollectionItem.id}`)
+              }}
+            />
+            <div className='item-details'>
+              <h6 className='item-price'>0 BTC</h6>
+              <span className='item-owner'>0x451...fcda1</span>
+            </div>
+            <Button className='buy-item-small-btn'>Buy</Button>
+          </div>
         ))}
       </div>
     </div>

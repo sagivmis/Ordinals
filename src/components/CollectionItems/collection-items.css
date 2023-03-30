@@ -1,7 +1,7 @@
 .collection-items {
   display: grid;
   align-items: center;
-  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
   /* flex-direction: row; */
   gap: 26px;
   width: 90%;
@@ -37,9 +37,16 @@
 
 .collection-item-image {
   background-color: #fff;
-  width: 190px;
-  height: 190px;
+  width: 150px;
+  height: 150px;
   cursor: pointer;
+  box-shadow: 0px 10px 20px 3px rgba(0, 0, 0, 0.3);
+}
+
+.collection-item-image:hover {
+  transform: translateY(-3px);
+  box-shadow: 0px 10px 20px 1px rgba(0, 0, 0, 0.15);
+  transition: all 0.3s ease;
 }
 
 .items-title {
@@ -49,4 +56,50 @@
 }
 
 .collected-items-images-container {
+}
+
+.current-collection-item-container {
+  /* display: flex; */
+  /* background-color: var(--background-secondary); */
+  justify-content: center;
+  display: inline-flex;
+  padding: 0.5em;
+  padding-bottom: 5em;
+  max-width: 9.5em;
+  flex-direction: column;
+  position: relative;
+}
+
+h6.item-price {
+  margin: 0;
+  padding: 0;
+  font-size: 14px;
+}
+
+.item-details {
+  display: flex;
+  position: relative;
+  top: 10px;
+  align-items: center;
+  justify-content: space-between;
+}
+
+span.item-owner {
+  font-size: 10px;
+  /* float: flex-end; */
+}
+
+button.buy-item-small-btn {
+  position: absolute;
+  bottom: 0;
+  transform: translate(0.5%);
+  color: var(--background-main);
+  width: 90%;
+  margin-bottom: 7.5px;
+}
+
+button.buy-item-small-btn:hover {
+  color: var(--white);
+  background-color: var(--background-main);
+  transition: all 0.2s ease;
 }
