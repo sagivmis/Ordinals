@@ -108,6 +108,8 @@ const CollectionItem = () => {
                 disableColumnFilter
                 getRowId={(row) => `${row.from}/${Math.random() * row.price}`}
                 hideFooter
+                getRowClassName={() => `history-row`}
+                classes={{ columnHeader: "history-header" }}
               />
             )}
             {/* <DataGrid

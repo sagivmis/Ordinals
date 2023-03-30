@@ -1,13 +1,23 @@
-import React, { useContext, useMemo } from "react"
+import React, {
+  Dispatch,
+  SetStateAction,
+  useContext,
+  useMemo,
+  useState
+} from "react"
 import { GlobalContext, IGlobalContext } from "../../context/GlobalContext"
 import { CollectionInfoType } from "../../types"
 import OrdinalSearch from "../OrdinalSearch"
 import "./collection-info.css"
 
-interface ICollectionInfo {}
+interface ICollectionInfo {
+  setFilteredID: Dispatch<SetStateAction<string>>
+}
 
 const CollectionInfo = (props: ICollectionInfo) => {
+  const { setFilteredID } = props
   const { currentCollection } = useContext(GlobalContext) as IGlobalContext
+
   const collectionInfo: CollectionInfoType[] = useMemo(
     () => [
       { field: "Floor Price", value: currentCollection.floorPrice },
@@ -52,7 +62,12 @@ const CollectionInfo = (props: ICollectionInfo) => {
           )
         })}
       </div>
-      <OrdinalSearch mode='item' open={true} setOpen={() => {}} />
+      <OrdinalSearch
+        mode='item'
+        open={true}
+        setOpen={() => {}}
+        setText={setFilteredID}
+      />
     </div>
   )
 }

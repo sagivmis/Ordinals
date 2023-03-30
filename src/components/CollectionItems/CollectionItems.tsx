@@ -1,11 +1,15 @@
 import React, { useContext } from "react"
 import { useNavigate } from "react-router-dom"
 import { GlobalContext, IGlobalContext } from "../../context/GlobalContext"
+import { CollectionType } from "../../types"
 import "./collection-items.css"
 
-interface ICollectionItems {}
+interface ICollectionItems {
+  filteredCurrentCollection: CollectionType
+}
 
 const CollectionItems = (props: ICollectionItems) => {
+  const { filteredCurrentCollection } = props
   let navigate = useNavigate()
   const { setCurrentItem, currentCollection } = useContext(
     GlobalContext
@@ -16,7 +20,7 @@ const CollectionItems = (props: ICollectionItems) => {
       <span className='items-title'>Items:</span>
       <span className='seperator' />
       <div className='collection-items'>
-        {currentCollection.data?.map((currentCollectionItem) => (
+        {filteredCurrentCollection.data?.map((currentCollectionItem) => (
           <img
             src={currentCollectionItem.image}
             alt={currentCollectionItem.owner}

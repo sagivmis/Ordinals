@@ -8,9 +8,11 @@ interface ISearch {
   mode: "collection" | "item"
   open: boolean
   setOpen: Dispatch<SetStateAction<boolean>>
+  setText: Dispatch<SetStateAction<string>>
 }
+
 const OrdinalSearch = (props: ISearch) => {
-  const { mode, open, setOpen } = props
+  const { mode, open, setOpen, setText } = props
   return (
     <div className={clsx("search-container", open ? "open" : "")}>
       <Input
@@ -25,6 +27,9 @@ const OrdinalSearch = (props: ISearch) => {
             />
           </InputAdornment>
         }
+        onChange={(event: React.ChangeEvent<HTMLInputElement>) => {
+          setText(event.target.value)
+        }}
         disableUnderline
         placeholder={`Search ${mode}s...`}
       />

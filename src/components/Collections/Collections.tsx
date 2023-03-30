@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react"
+import React, { useCallback, useContext, useEffect, useState } from "react"
 import "./collections.css"
 import { GlobalContext, IGlobalContext } from "../../context/GlobalContext"
 import { Link } from "react-router-dom"
@@ -6,6 +6,7 @@ import { DataGrid, GridColDef } from "@mui/x-data-grid"
 import Avatar from "@mui/material/Avatar"
 import OrdinalSearch from "../OrdinalSearch"
 import { useNavigate } from "react-router-dom"
+import { CollectionType } from "../../types"
 
 const collectionsColumns: GridColDef[] = [
   {
@@ -62,6 +63,32 @@ const Collections = () => {
   ) as IGlobalContext
 
   const [searchOpen, setSearchOpen] = useState(false)
+  const [filterBy, setFilterBy] = useState<"name" | "address">("address")
+  const [filterQuery, setFilterQuery] = useState("")
+
+  const [filteredCollections, setFilteredCollections] =
+    useState<CollectionType[]>(collections)
+
+  const filterCollections = useCallback(() => {
+    const newFilteredCollections: CollectionType[] = []
+    collections.forEach((collection) => {
+      if (
+        collection.id
+          .toString()
+          .toLowerCase()
+          .includes(filterQuery.toLowerCase()) ||
+        collection.name.toLowerCase().includes(filterQuery.toLowerCase())
+      ) {
+        newFilteredCollections.push(collection)
+      }
+    })
+    return newFilteredCollections
+  }, [collections, filterQuery])
+
+  useEffect(() => {
+    setFilteredCollections(filterCollections())
+    console.log(filterQuery)
+  }, [collections, filterCollections, filterQuery])
 
   return (
     <div className='collections-container'>
@@ -76,9 +103,10 @@ const Collections = () => {
         mode='collection'
         open={searchOpen}
         setOpen={setSearchOpen}
+        setText={setFilterQuery}
       />
       <DataGrid
-        rows={collections}
+        rows={filteredCollections}
         columns={collectionsColumns}
         className='collections-list'
         disableColumnFilter

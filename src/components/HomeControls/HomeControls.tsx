@@ -23,6 +23,9 @@ const HomeControls = () => {
         <Button variant='text' className='nav-btn'>
           <Link to='/collections'>Collections</Link>
         </Button>
+        <Button variant='text' className='nav-btn'>
+          <Link to='/profile'>Profile</Link>
+        </Button>
       </div>
       <Button
         variant='contained'
