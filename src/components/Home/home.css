@@ -168,3 +168,7 @@ a {
   color: unset;
   text-decoration: unset;
 }
+
+svg.undo-input {
+  cursor: pointer;
+}
