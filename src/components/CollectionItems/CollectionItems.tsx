@@ -37,8 +37,16 @@ const CollectionItems = (props: ICollectionItems) => {
               }}
             />
             <div className='item-details'>
-              <h6 className='item-price'>0 BTC</h6>
-              <span className='item-owner'>0x451...fcda1</span>
+              <h6 className='item-price'>{currentCollectionItem.price} BTC</h6>
+              <span className='item-owner'>
+                {`${currentCollectionItem.owner.substring(
+                  0,
+                  5
+                )}.....${currentCollectionItem.owner.substring(
+                  currentCollectionItem.owner.length - 5,
+                  currentCollectionItem.owner.length
+                )}`}
+              </span>
             </div>
             <Button className='buy-item-small-btn'>Buy</Button>
           </div>

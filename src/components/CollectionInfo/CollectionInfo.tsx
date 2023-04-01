@@ -2,11 +2,13 @@ import React, {
   Dispatch,
   SetStateAction,
   useContext,
+  useEffect,
   useMemo,
+  useRef,
   useState
 } from "react"
 import { GlobalContext, IGlobalContext } from "../../context/GlobalContext"
-import { CollectionInfoType } from "../../types"
+import { CollectionInfoType, CollectionItemType } from "../../types"
 import OrdinalSearch from "../OrdinalSearch"
 import "./collection-info.css"
 
@@ -18,18 +20,83 @@ const CollectionInfo = (props: ICollectionInfo) => {
   const { setFilteredID } = props
   const { currentCollection } = useContext(GlobalContext) as IGlobalContext
 
+  const [floorPrice, setFloorPrice] = useState(0)
+  const [ownersAmount, setOwnersAmount] = useState(0)
+  const [listedAmount, setListedAmount] = useState(0)
+  const [listedPercent, setListedPercent] = useState("0%")
+
+  const currentCollectionOwners = useRef<Record<string, CollectionItemType[]>>(
+    {}
+  ) // mapping between address and items in collection
+
+  const currentCollectionListedItems = useRef<
+    Record<string, CollectionItemType[]>
+  >({}) //mapping between owner adress and listed items in collection
+
+  useEffect(() => {
+    if (currentCollection.data[0]) {
+      let minPrice = currentCollection.data[0].price // arbitrary taking the furst
+      currentCollection.data.forEach((item) => {
+        if (item.price < minPrice) minPrice = item.price
+      })
+      setFloorPrice(minPrice)
+    }
+  }, [currentCollection, currentCollection.data])
+
+  useEffect(() => {
+    currentCollection.data.forEach((item) => {
+      if (
+        currentCollectionOwners.current &&
+        currentCollectionOwners.current[item.owner]
+      ) {
+        if (!currentCollectionOwners.current[item.owner].includes(item)) {
+          currentCollectionOwners.current[item.owner].push(item)
+        }
+      } else if (!currentCollectionOwners.current[item.owner]) {
+        currentCollectionOwners.current[item.owner] = [item]
+      }
+    })
+    setOwnersAmount(Object.keys(currentCollectionOwners.current).length)
+  }, [currentCollection.data])
+
+  useEffect(() => {
+    let listed = 0
+    currentCollection.data.forEach((item) => {
+      if (item.price > 0) {
+        listed += 1
+
+        if (
+          currentCollectionListedItems.current &&
+          currentCollectionListedItems.current[item.owner]
+        ) {
+          if (!currentCollectionOwners.current[item.owner].includes(item)) {
+            currentCollectionListedItems.current[item.owner].push(item)
+          }
+        } else if (!currentCollectionListedItems.current[item.owner]) {
+          currentCollectionListedItems.current[item.owner] = [item]
+        }
+      }
+    })
+    setListedAmount(listed)
+    setListedPercent(
+      `${((listed / currentCollection.totalSupply) * 100).toFixed(1)} %`
+    )
+  }, [currentCollection.data, currentCollection.totalSupply])
+
   const collectionInfo: CollectionInfoType[] = useMemo(
     () => [
-      { field: "Floor Price", value: currentCollection.floorPrice },
+      { field: "Floor Price", value: floorPrice },
       { field: "Supply", value: currentCollection.totalSupply },
-      { field: "Owners", value: currentCollection.totalSupply },
-      { field: "Listed", value: currentCollection.totalSupply },
+      { field: "Owners", value: ownersAmount },
+      { field: "Listed", value: listedPercent },
       { field: "Total Volume", value: currentCollection.volume }
     ],
     [
-      currentCollection.floorPrice,
       currentCollection.totalSupply,
-      currentCollection.volume
+      currentCollection.volume,
+      floorPrice,
+      listedPercent,
+      ownersAmount
     ]
   )
 

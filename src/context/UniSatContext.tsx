@@ -76,8 +76,6 @@ const UniSatContextProvider: React.FC<Props> = ({ children }) => {
   }, [address])
 
   useEffect(() => {
-    console.log(balance)
-    console.log(network)
     getBasicInfo()
   }, [balance, getBasicInfo, network])
 
