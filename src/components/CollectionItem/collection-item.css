@@ -24,11 +24,11 @@
 }
 
 .current-price-container {
-  background-color: #d9d9d9;
+  background-color: var(--background-secondary);
   /* background-color: #d9d9d9; */
   width: 100%;
   flex: 1;
-  border: 1px solid #c7b9b9;
+  border: 1px solid var(--border-secondary);
   border-radius: 19px;
   display: flex;
   justify-content: center;
@@ -39,7 +39,7 @@
 .current-price-stack {
   display: flex;
   flex-direction: row;
-  width: 80%;
+  width: 95%;
   height: 50%;
   justify-content: space-between;
   align-items: center;
@@ -73,6 +73,7 @@ button.transaction-btn {
 button.buy-btn {
   color: var(--white);
   background-color: var(--main-darker);
+  max-width: 6em;
 }
 
 button.buy-btn:hover {
@@ -82,9 +83,13 @@ button.buy-btn:hover {
 button.offer-btn {
   color: var(--background-main);
   background-color: var(--main-lightest);
+  max-width: 8em;
 }
 button.offer-btn:hover {
   background-color: var(--background-secondary);
+  /* box-shadow: 0px 0px 10px 48px var(--main-darker); */
+  box-shadow: none;
+  /* text-shadow: 0px 0px 2px var(--main-darker); */
   transition: all 0.33s;
 }
 /* button.buy-btn {
@@ -106,8 +111,8 @@ button.offer-btn:hover {
 } */
 
 .collection-item-history-n-offers {
-  background-color: #d9d9d9;
-  border: 1px solid #c7b9b9;
+  background-color: var(--background-secondary);
+  border: 1px solid var(--border-secondary);
   border-radius: 19px;
   flex: 3;
   display: flex;
@@ -132,14 +137,13 @@ button.offer-btn:hover {
   min-height: 600px;
   /* box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.24), 0px 0px 5px rgba(0, 0, 0, 0.04),
     0px 0px 1px rgba(0, 0, 0, 0.4), 0px 0px 15px rgba(0, 0, 0, 0.24); */
-  box-shadow: 0px 10px 20px 5px rgba(0, 0, 0, 0.3);
+  box-shadow: 0px 10px 20px 2px rgba(0, 0, 0, 0.15);
 
   /* flex: 1; */
 }
 
 .current-collection-item-image:hover {
   /* transform: translateY(-2px); */
-  box-shadow: 0px 10px 20px 2px rgba(0, 0, 0, 0.15);
 
   transition: all 0.3s ease;
 }
