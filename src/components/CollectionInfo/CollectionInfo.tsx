@@ -85,7 +85,7 @@ const CollectionInfo = (props: ICollectionInfo) => {
 
   const collectionInfo: CollectionInfoType[] = useMemo(
     () => [
-      { field: "Floor Price", value: floorPrice },
+      { field: "Floor Price", value: `${floorPrice} BTC` },
       { field: "Supply", value: currentCollection.totalSupply },
       { field: "Owners", value: ownersAmount },
       { field: "Listed", value: listedPercent },
