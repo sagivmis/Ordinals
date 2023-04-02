@@ -73,10 +73,7 @@ const Collections = () => {
     const newFilteredCollections: CollectionType[] = []
     collections.forEach((collection) => {
       if (
-        collection.id
-          .toString()
-          .toLowerCase()
-          .includes(filterQuery.toLowerCase()) ||
+        collection.address.toLowerCase().includes(filterQuery.toLowerCase()) ||
         collection.name.toLowerCase().includes(filterQuery.toLowerCase())
       ) {
         newFilteredCollections.push(collection)

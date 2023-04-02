@@ -20,6 +20,7 @@ export type CollectionItemType = {
 }
 
 export type CollectionType = {
+  address: string
   id: number
   name: string
   floorPrice: number

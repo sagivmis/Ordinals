@@ -239,7 +239,8 @@ const highlightedCollectionsData: CollectionType[] = [
     totalSupply: 100,
     image: ordinalsPunks,
     data: dummyPunksData,
-    collectionOwner: "Ordinals ©"
+    collectionOwner: "Ordinals ©",
+    address: "0x01ad1ccasd2130"
   },
 
   {
@@ -250,7 +251,8 @@ const highlightedCollectionsData: CollectionType[] = [
     totalSupply: 999,
     image: phoenixParrots,
     data: dummyPhoenixData,
-    collectionOwner: "PhoenixCo"
+    collectionOwner: "PhoenixCo",
+    address: "0x01ada2c0sd21aa"
   },
   {
     id: 2,
@@ -260,7 +262,8 @@ const highlightedCollectionsData: CollectionType[] = [
     totalSupply: 333,
     image: ordinalsPenguins,
     data: dummyPenguinsData,
-    collectionOwner: "Ordinals ©"
+    collectionOwner: "Ordinals ©",
+    address: "0x01adcccasd21a2"
   },
   {
     id: 3,
@@ -270,7 +273,8 @@ const highlightedCollectionsData: CollectionType[] = [
     totalSupply: 50,
     image: deGods,
     data: dummyDeGodsData,
-    collectionOwner: "DeGods com"
+    collectionOwner: "DeGods com",
+    address: "0x01ad1xcccdaa22"
   }
 ]
 
@@ -283,9 +287,9 @@ const dummyCollections: CollectionType[] = [
     totalSupply: 100,
     image: ordinalsPunks,
     data: dummyPunksData,
-    collectionOwner: "Ordinals ©"
+    collectionOwner: "Ordinals ©",
+    address: "0x01ad1ccasd2130"
   },
-
   {
     id: 1,
     name: "Phoenix Parrots",
@@ -294,7 +298,8 @@ const dummyCollections: CollectionType[] = [
     totalSupply: 999,
     image: phoenixParrots,
     data: dummyPhoenixData,
-    collectionOwner: "PhoenixCo"
+    collectionOwner: "PhoenixCo",
+    address: "0x01ada2c0sd21aa"
   },
   {
     id: 2,
@@ -304,7 +309,8 @@ const dummyCollections: CollectionType[] = [
     totalSupply: 333,
     image: ordinalsPenguins,
     data: dummyPenguinsData,
-    collectionOwner: "Ordinals ©"
+    collectionOwner: "Ordinals ©",
+    address: "0x01adcccasd21a2"
   },
   {
     id: 3,
@@ -314,7 +320,8 @@ const dummyCollections: CollectionType[] = [
     totalSupply: 50,
     image: deGods,
     data: dummyDeGodsData,
-    collectionOwner: "DeGods com"
+    collectionOwner: "DeGods com",
+    address: "0x01ad1xcccdaa22"
   }
 ]
 
@@ -336,7 +343,8 @@ const GlobalContextProvider: React.FC<Props> = ({ children }) => {
     totalSupply: 0,
     volume: 0,
     collectionOwner: "",
-    data: []
+    data: [],
+    address: ""
   })
   const [currentItem, setCurrentItem] = useState<CollectionItemType>()
 
