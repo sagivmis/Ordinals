@@ -55,8 +55,6 @@ const UniSatContextProvider: React.FC<Props> = ({ children }) => {
   }, [unisat, unisatInstalled])
 
   const getBasicInfo = useCallback(async () => {
-    const unisat = (window as any).unisat
-    setUnisat(unisat)
     if (typeof unisat !== "undefined") {
       setUnisatInstalled(true)
     }
@@ -73,7 +71,7 @@ const UniSatContextProvider: React.FC<Props> = ({ children }) => {
       const network = await unisat.getNetwork()
       setNetwork(network)
     }
-  }, [address])
+  }, [address, unisat])
 
   useEffect(() => {
     getBasicInfo()
@@ -102,13 +100,16 @@ const UniSatContextProvider: React.FC<Props> = ({ children }) => {
         setConnected(false)
       }
     },
-    [selfAccounts]
+    [getBasicInfo, selfAccounts]
   )
 
-  const handleNetworkChanged = useCallback((network: string) => {
-    setNetwork(network)
-    getBasicInfo()
-  }, [])
+  const handleNetworkChanged = useCallback(
+    (network: string) => {
+      setNetwork(network)
+      getBasicInfo()
+    },
+    [getBasicInfo]
+  )
 
   useEffect(() => {
     if (unisat) {
@@ -116,9 +117,9 @@ const UniSatContextProvider: React.FC<Props> = ({ children }) => {
     } else {
       return
     }
-    // unisat.getAccounts().then((accounts: string[]) => {
-    //   handleAccountsChanged(accounts)
-    // })
+    unisat.getAccounts().then((accounts: string[]) => {
+      handleAccountsChanged(accounts)
+    })
 
     unisat.on("accountsChanged", handleAccountsChanged)
     unisat.on("networkChanged", handleNetworkChanged)
