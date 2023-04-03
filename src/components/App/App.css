@@ -9,7 +9,6 @@
   overflow: hidden;
   font-family: "Inter", sans-serif;
   display: flex;
-  /* font-family: "Roboto", sans-serif; */
 
   --background-main: #e74c3c;
   --main-darker: #c0392b;
@@ -18,6 +17,11 @@
   --background-secondary: #f3f3f3;
   --border-secondary: #c0c0c0;
   --white: #fff;
+  --black: #000;
+  --background-text: #fff;
+  --secondary-background-text: #e74c3c;
+  --secondary-background-text-darker: #c0392b;
+  --secondary-background-text-lighter: #eb685a;
 }
 
 .seperator {

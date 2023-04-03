@@ -1,21 +1,16 @@
 .collection-image-container {
   background-color: white;
   border-radius: 12px;
-  /* width: 130px; */
   padding: 0.3em;
   display: flex;
   align-items: center;
 }
 
 .collection-info-container {
-  /* color: var(--white); */
-  /* margin-top: 40px; */
   display: flex;
   flex-direction: column;
   align-items: center;
   width: 100%;
-  /* height: 50%; */
-  /* min-height: 50%; */
   max-height: 50%;
   justify-content: flex-end;
 }
@@ -45,19 +40,17 @@
 .collection-total-volume {
   display: flex;
   flex-direction: column;
-  /* color: var(--white); */
 }
 .collection-floor-price-value,
 .collection-supply-value,
 .collection-owners-value,
 .collection-listed-value,
 .collection-total-volume-value {
-  /* color: var(--white); */
   font-size: 20px;
   font-weight: 600;
 }
 
 .search-item-input input {
-  color: var(--background-main);
+  color: var(--secondary-background-text);
   font-family: "Inter", sans-serif;
 }

@@ -2,7 +2,6 @@
   display: grid;
   align-items: center;
   grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
-  /* flex-direction: row; */
   gap: 26px;
   width: 90%;
   max-width: 90%;
@@ -59,8 +58,6 @@
 }
 
 .current-collection-item-container {
-  /* display: flex; */
-  /* background-color: var(--background-secondary); */
   justify-content: center;
   display: inline-flex;
   padding: 0.5em;
@@ -86,20 +83,19 @@ h6.item-price {
 
 span.item-owner {
   font-size: 10px;
-  /* float: flex-end; */
 }
 
 button.buy-item-small-btn {
   position: absolute;
   bottom: 0;
   transform: translate(0.5%);
-  color: var(--background-main);
+  color: var(--secondary-background-text);
   width: 90%;
   margin-bottom: 7.5px;
 }
 
 button.buy-item-small-btn:hover {
-  color: var(--white);
+  color: var(--background-text);
   background-color: var(--background-main);
   transition: all 0.2s ease;
 }

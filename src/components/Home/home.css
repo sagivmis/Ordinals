@@ -20,7 +20,6 @@
 }
 
 .highlighted-collections {
-  /* height: 25%; */
   display: flex;
   flex-direction: row;
   justify-content: space-around;
@@ -48,27 +47,23 @@
   width: fit-content;
   padding: 0.25rem 0.5rem 0rem 0.5rem;
   border-radius: 8px 8px 0px 0px;
-  /* border-bottom-left-radius: 0px;
-  border-bottom-right-radius: 0px; */
   position: relative;
   top: 0rem;
   font-size: 14px;
   max-width: 50%;
   transition: all 0.2s ease-in;
-  /* color: var(--main-darker); */
 }
 
 .highlighted-collection {
   display: flex;
   flex-direction: column;
   align-items: center;
-  color: var(--main-darker);
+  color: var(--secondary-background-text-darker);
   font-weight: 400;
-  /* width: calc(min-content + "0%"); */
 }
 
 .highlighted-collection:hover {
-  color: var(--white);
+  color: var(--background-text);
   font-weight: 500;
   transition: color font-weight 0.3s;
 }
@@ -96,7 +91,7 @@
 
 button.nav-btn.selected {
   background-color: var(--main-darker);
-  color: var(--white);
+  color: var(--background-text);
 }
 
 button.nav-btn.selected:hover {
@@ -105,24 +100,23 @@ button.nav-btn.selected:hover {
 }
 
 .pad-with-color {
-  /* display: ; */
   display: inline;
   background-color: var(--main-darker);
-  color: var(--white);
+  color: var(--background-text);
   padding: 0.1em 0.1em;
 }
 
 button.wallet-btn {
   display: flex;
-  background-color: #fff;
-  color: black;
+  background-color: var(--white);
+  color: var(--black);
   gap: 10px;
   padding: 5px 20px;
   border-radius: 50px;
-  border: 0.1em solid black;
+  border: 0.1em solid;
   text-transform: unset;
   font-size: 13px;
-  border-color: var(--white);
+  border-color: var(--background-text);
 }
 
 .wallet-icon[role="img"] {
@@ -139,7 +133,7 @@ button.wallet-btn:hover {
 }
 
 button.wallet-btn:disabled {
-  color: var(--white);
+  color: var(--background-text);
   background-color: var(--main-darker);
   box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.24), 0px 0px 5px rgba(0, 0, 0, 0.04),
     0px 0px 1px rgba(0, 0, 0, 0.4);
@@ -147,15 +141,14 @@ button.wallet-btn:disabled {
 button.nav-btn {
   font-size: 20px;
   text-transform: uppercase;
-  color: black;
+  color: var(--black);
 }
 
 button.nav-btn:hover {
   background-color: unset;
-  color: var(--main-lighter);
+  color: var(--secondary-background-text-lighter);
   text-shadow: 0px 0px 3px var(--white), 0px 0px 5px var(--main-lighter),
     0px 0px 3px var(--main-lighter);
-  /* transition: color text-shadow 0.1s; */
 }
 
 .home-landing-text {
