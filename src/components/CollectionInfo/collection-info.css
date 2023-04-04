@@ -1,4 +1,4 @@
-.collection-image-container {
+.selected-collection-image-container {
   background-color: white;
   border-radius: 12px;
   padding: 0.3em;
@@ -6,7 +6,7 @@
   align-items: center;
 }
 
-.collection-info-container {
+.selected-collection-info-container {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -20,7 +20,7 @@
   font-weight: 600;
 }
 
-.collection-image {
+.selected-collection-image {
   width: 120px;
 }
 
@@ -53,4 +53,27 @@
 .search-item-input input {
   color: var(--secondary-background-text);
   font-family: "Inter", sans-serif;
+}
+
+@media only screen and (max-width: 850px) {
+  .collection-info {
+    width: 90%;
+    margin-top: 10px;
+  }
+  .collection-floor-price-value,
+  .collection-supply-value,
+  .collection-owners-value,
+  .collection-listed-value,
+  .collection-total-volume-value {
+    font-size: 14px;
+    font-weight: 600;
+    white-space: nowrap;
+  }
+  .collection-floor-price-field,
+  .collection-supply-field,
+  .collection-owners-field,
+  .collection-listed-field,
+  .collection-total-volume-field {
+    font-size: 10px;
+  }
 }

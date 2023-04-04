@@ -101,12 +101,12 @@ const CollectionInfo = (props: ICollectionInfo) => {
   )
 
   return (
-    <div className='collection-info-container'>
-      <div className='collection-image-container'>
+    <div className='selected-collection-info-container'>
+      <div className='selected-collection-image-container'>
         <img
           src={currentCollection.image}
           alt={currentCollection.name}
-          className='collection-image'
+          className='selected-collection-image'
         />
       </div>
       <span className='selected-collection-name'>{currentCollection.name}</span>

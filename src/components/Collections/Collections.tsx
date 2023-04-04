@@ -23,17 +23,17 @@ const collectionsColumns: GridColDef[] = [
   {
     field: "name",
     headerName: "Name",
-    flex: 6,
+    flex: 8,
     hideable: false,
     sortable: false
   },
   {
     field: "floorPrice",
-    headerName: "Floor Price",
+    headerName: "Floor",
     valueFormatter: (params) => {
       return `${params.value} BTC`
     },
-    flex: 6,
+    flex: 8,
     hideable: false,
     sortable: false
   },
@@ -43,14 +43,14 @@ const collectionsColumns: GridColDef[] = [
     valueFormatter: (params) => {
       return `${params.value} BTC`
     },
-    flex: 6,
+    flex: 8,
     hideable: false,
     sortable: false
   },
   {
     field: "totalSupply",
-    headerName: "Total Supply",
-    flex: 4,
+    headerName: "Supply",
+    flex: 8,
     hideable: false,
     sortable: false
   }

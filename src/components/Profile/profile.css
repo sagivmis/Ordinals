@@ -41,4 +41,25 @@
   align-items: center;
   grid-template-columns: repeat(auto-fit, minmax(20%, 1fr));
   position: relative;
+  margin-top: 1em;
+}
+.collected-item-image {
+  width: 180px;
+  background-color: var(--background-secondary);
+  padding: 0.25em;
+}
+@media only screen and (max-width: 850px) {
+  .dot {
+    width: 100px;
+    height: 100px;
+  }
+
+  .collected-items-images-container {
+    margin-top: 1em;
+  }
+  .collected-item-image {
+    width: 100px;
+    background-color: var(--background-secondary);
+    padding: 0.25em;
+  }
 }

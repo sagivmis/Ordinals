@@ -34,12 +34,12 @@
   padding: 0.25em;
   transition: all 0.2s ease-in;
 }
+
 .highlighted-collection-container {
   justify-content: center;
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 100px;
 }
 
 .collection-name-home {
@@ -103,7 +103,7 @@ button.nav-btn.selected:hover {
   display: inline;
   background-color: var(--main-darker);
   color: var(--background-text);
-  padding: 0.1em 0.1em;
+  padding: 0.02em 0.1em;
 }
 
 button.wallet-btn {
@@ -168,4 +168,42 @@ a {
 
 svg.undo-input {
   cursor: pointer;
+}
+
+.navigation {
+  display: flex;
+}
+
+@media only screen and (max-width: 850px) {
+  .controls {
+    left: 5%;
+    flex-wrap: wrap;
+  }
+  button.nav-btn {
+    font-size: 12px;
+  }
+
+  button.wallet-btn {
+    padding: 0em 2em;
+    font-size: 12px;
+    position: absolute;
+    right: 0;
+    bottom: 100%;
+  }
+
+  .home-landing-text {
+    font-size: 30px;
+  }
+
+  .collection-image {
+    width: 80px;
+  }
+
+  .collection-name-home {
+    font-size: 12px;
+    background-color: unset;
+    color: var(--background-text);
+    font-weight: 600;
+    margin-bottom: 5px;
+  }
 }

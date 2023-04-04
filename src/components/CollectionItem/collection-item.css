@@ -160,3 +160,49 @@ div.MuiDataGrid-columnHeader[role="columnheader"].history-header {
 .MuiDataGrid-root.offers-list {
   border: unset;
 }
+
+@media only screen and (max-width: 850px) {
+  .collection-item-image-container {
+    /* min-width: 100%;
+    min-height: 100%;
+    width: 100%;
+    height: 100%; */
+    padding: 0;
+    flex: unset;
+  }
+
+  .current-collection-item-image {
+    min-width: 50%;
+    min-height: 90%;
+    width: 100%;
+    height: 50%;
+  }
+
+  .collection-item {
+    flex-direction: column;
+    margin-top: 4em;
+    gap: 0;
+    height: calc(100% - 5em);
+  }
+
+  .collection-item-labels {
+    gap: 0.5em;
+    bottom: 0;
+  }
+
+  .collection-item-owner {
+    position: absolute;
+    right: 0;
+  }
+
+  .collection-item-info-container {
+    position: relative;
+    /* bottom: 2.5em; */
+    height: 100%;
+    flex: unset;
+  }
+
+  .collection-item-history-n-offers {
+    /* min-height: 100%; */
+  }
+}

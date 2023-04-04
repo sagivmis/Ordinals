@@ -24,7 +24,11 @@ const Profile = () => {
         <div className='collected-items-images-container'>
           {userProfile.collected.map((collectedItem) => (
             <div className='collected-item'>
-              <img src={collectedItem.image} alt={collectedItem.owner} />
+              <img
+                src={collectedItem.image}
+                alt={collectedItem.owner}
+                className='collected-item-image'
+              />
             </div>
           ))}
         </div>

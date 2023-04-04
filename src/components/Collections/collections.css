@@ -103,3 +103,14 @@ div.MuiDataGrid-columnHeader[role="columnheader"] {
 
 div.MuiDataGrid-columnHeaders {
 }
+
+@media only screen and (max-width: 850px) {
+  /* DATAGRID */
+  div.MuiDataGrid-row[role="row"] {
+    font-size: 12px;
+  }
+
+  div.MuiDataGrid-columnHeader[role="columnheader"] {
+    font-size: 14px;
+  }
+}

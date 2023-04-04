@@ -103,7 +103,7 @@ const CollectionItem = () => {
             {currentItem?.offers && (
               <DataGrid
                 columns={offersColumns}
-                rows={currentItem?.offers}
+                rows={currentItem.offers || []}
                 className='offers-list'
                 disableColumnFilter
                 getRowId={(row) => `${row.from}/${Math.random() * row.price}`}
