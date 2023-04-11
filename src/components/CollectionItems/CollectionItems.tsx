@@ -1,10 +1,10 @@
 import { Box, Button, Tab, Tabs } from "@mui/material"
-import React, { useContext } from "react"
+import React, { useContext, useState } from "react"
 import { useNavigate } from "react-router-dom"
 import { GlobalContext, IGlobalContext } from "../../context/GlobalContext"
 import { CollectionType } from "../../types"
 import "./collection-items.css"
-import TabPanel from "./TabPanel"
+import TabPanel from "../TabPanel"
 
 interface ICollectionItems {
   filteredCurrentCollection: CollectionType
@@ -16,35 +16,35 @@ const CollectionItems = (props: ICollectionItems) => {
   const { setCurrentItem, currentCollection } = useContext(
     GlobalContext
   ) as IGlobalContext
-  const [tabValue, setTabValue] = React.useState(0)
+  const [tabIndex, setTabIndex] = useState(0)
 
   const handleChange = (event: React.SyntheticEvent, newValue: number) => {
-    setTabValue(newValue)
+    setTabIndex(newValue)
   }
-  const a11yProps = (index: number) => {
+
+  const generateProps = (index: number) => {
     return {
       id: `tab-${index}`,
       "aria-controls": `tabpanel-${index}`
-      // "aria-selected": false
     }
   }
+
   return (
     <div className='collection-items-container'>
-      {/* <span className='seperator' style={{ marginTop: "1em" }} /> */}
       <Tabs
-        value={tabValue}
+        value={tabIndex}
         onChange={handleChange}
         TabIndicatorProps={{
           children: <span className='MuiTabs-indicatorSpan' />
         }}
         className='collection-tabs'
       >
-        <Tab label='Items' {...a11yProps(0)} />
-        <Tab label='Activity' {...a11yProps(1)} />
-        <Tab label='Analytics' {...a11yProps(2)} />
+        <Tab label='Items' {...generateProps(0)} />
+        <Tab label='Activity' {...generateProps(1)} />
+        <Tab label='Analytics' {...generateProps(2)} />
       </Tabs>
 
-      <TabPanel value={tabValue} index={0}>
+      <TabPanel value={tabIndex} index={0}>
         <div className='collection-items'>
           {filteredCurrentCollection.data?.map((currentCollectionItem) => (
             <div className='current-collection-item-container'>
@@ -80,10 +80,10 @@ const CollectionItems = (props: ICollectionItems) => {
           ))}
         </div>
       </TabPanel>
-      <TabPanel value={tabValue} index={1}>
+      <TabPanel value={tabIndex} index={1}>
         Activity
       </TabPanel>
-      <TabPanel value={tabValue} index={2}>
+      <TabPanel value={tabIndex} index={2}>
         Analytics
       </TabPanel>
     </div>
