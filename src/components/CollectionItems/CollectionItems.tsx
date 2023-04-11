@@ -4,7 +4,7 @@ import { useNavigate } from "react-router-dom"
 import { GlobalContext, IGlobalContext } from "../../context/GlobalContext"
 import { CollectionType } from "../../types"
 import "./collection-items.css"
-import TabPanel from "../TabPanel"
+import TabPanel from "../../utilComponents/TabPanel"
 
 interface ICollectionItems {
   filteredCurrentCollection: CollectionType

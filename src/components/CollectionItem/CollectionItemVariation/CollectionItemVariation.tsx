@@ -4,7 +4,7 @@ import clsx from "clsx"
 import React, { useContext, useEffect } from "react"
 import { Link, useParams } from "react-router-dom"
 import { GlobalContext, IGlobalContext } from "../../../context/GlobalContext"
-import UserControls from "../../UserControls"
+import UserControls from "../../../utilComponents/UserControls"
 
 const offersColumns: GridColDef[] = [
   {

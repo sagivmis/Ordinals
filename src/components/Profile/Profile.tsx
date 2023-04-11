@@ -2,8 +2,8 @@ import { Tab, Tabs } from "@mui/material"
 import React, { useContext, useState } from "react"
 import { Link } from "react-router-dom"
 import { GlobalContext, IGlobalContext } from "../../context/GlobalContext"
-import TabPanel from "../TabPanel"
-import UserControls from "../UserControls"
+import TabPanel from "../../utilComponents/TabPanel"
+import UserControls from "../../utilComponents/UserControls"
 import "./profile.css"
 
 const Profile = () => {
