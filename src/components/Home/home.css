@@ -33,6 +33,7 @@
   background-color: var(--background-secondary);
   padding: 0.25em;
   transition: all 0.2s ease-in;
+  width: 140px;
 }
 
 .highlighted-collection-container {
@@ -117,6 +118,7 @@ button.wallet-btn {
   text-transform: unset;
   font-size: 13px;
   border-color: var(--background-text);
+  min-width: 12em;
 }
 
 .wallet-icon[role="img"] {
@@ -174,7 +176,7 @@ svg.undo-input {
   display: flex;
 }
 
-@media only screen and (max-width: 850px) {
+@media only screen and (max-width: 450px) {
   .controls {
     left: 5%;
     flex-wrap: wrap;

@@ -8,8 +8,6 @@ import Collections from "../Collections"
 import CollectionItem from "../CollectionItem"
 import Profile from "../Profile"
 
-//TODO: -Collection -CollectionItem
-
 function App() {
   return (
     <Router>

@@ -1,4 +1,4 @@
-import React, { useContext } from "react"
+import React, { useContext, useMemo, useState } from "react"
 import { useNavigate } from "react-router-dom"
 import { GlobalContext, IGlobalContext } from "../../context/GlobalContext"
 
@@ -7,9 +7,12 @@ const HighlightedCollections = () => {
     useContext(GlobalContext) as IGlobalContext
 
   const navigate = useNavigate()
-  return (
-    <div className='highlighted-collections'>
-      {highlightedCollections.map((highlightedCollection) => (
+
+  const [carouselIndex, setCarouselIndex] = useState(0)
+
+  const highlightedCollectionsRendered = useMemo(
+    () =>
+      highlightedCollections.map((highlightedCollection) => (
         <div className='highlighted-collection-container'>
           <div
             className='highlighted-collection'
@@ -32,7 +35,12 @@ const HighlightedCollections = () => {
             />
           </div>
         </div>
-      ))}
+      )),
+    [collections, highlightedCollections, navigate, setCurrentCollection]
+  )
+  return (
+    <div className='highlighted-collections'>
+      {highlightedCollectionsRendered}
     </div>
   )
 }

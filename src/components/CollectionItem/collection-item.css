@@ -21,35 +21,40 @@
   display: flex;
   flex-direction: column;
   gap: 1em;
+
+  height: calc(100% + 2em);
+  position: relative;
+  bottom: 2em;
 }
 
 .current-price-container {
-  background-color: var(--background-secondary);
+  /* background-color: var(--background-secondary); */
   width: 100%;
-  flex: 1;
-  border: 1px solid var(--border-secondary);
+  flex: 3;
+  /* border: 1px solid var(--border-secondary); */
   border-radius: 19px;
   display: flex;
   justify-content: center;
   align-items: center;
-  color: var(--secondary-background-text);
-  box-shadow: 0px 0px 5px 2px rgba(0, 0, 0, 0.2);
+  /* color: var(--secondary-background-text); */
+  /* box-shadow: 0px 0px 5px 2px rgba(0, 0, 0, 0.2); */
+  max-height: 5em;
 }
 .current-price-stack {
   display: flex;
   flex-direction: row;
-  width: 95%;
-  height: 50%;
+  width: calc(100% - 3em);
   justify-content: space-between;
   align-items: center;
-  font-family: "Space Grotesk", sans-serif;
+  /* font-family: "Space Grotesk", sans-serif; */
 }
 
 .current-price {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   justify-content: center;
-  gap: 0.5em;
+  gap: 1em;
+  align-items: center;
 }
 
 .current-price-label {
@@ -57,7 +62,8 @@
 }
 .current-price-value {
   align-self: flex-end;
-  font-weight: 500;
+  font-weight: 700;
+  font-size: 20px;
 }
 
 button.transaction-btn {
@@ -93,7 +99,7 @@ button.offer-btn:hover {
   background-color: var(--background-secondary);
   border: 1px solid var(--border-secondary);
   border-radius: 19px;
-  flex: 3;
+  flex: 18;
   display: flex;
   flex-direction: column;
   box-shadow: 0px 0px 5px 2px rgba(0, 0, 0, 0.2);
@@ -124,10 +130,10 @@ button.offer-btn:hover {
   flex: 1;
   display: flex;
   flex-direction: column;
-  gap: 1em;
+  gap: 0.5em;
   align-items: flex-start;
-  position: relative;
-  bottom: 2.5em;
+  /* position: relative; */
+  /* bottom: 2.5em; */
 }
 
 h2.collection-item-name {
@@ -161,12 +167,8 @@ div.MuiDataGrid-columnHeader[role="columnheader"].history-header {
   border: unset;
 }
 
-@media only screen and (max-width: 850px) {
+@media only screen and (max-width: 450px) {
   .collection-item-image-container {
-    /* min-width: 100%;
-    min-height: 100%;
-    width: 100%;
-    height: 100%; */
     padding: 0;
     flex: unset;
   }
@@ -205,4 +207,55 @@ div.MuiDataGrid-columnHeader[role="columnheader"].history-header {
   .collection-item-history-n-offers {
     /* min-height: 100%; */
   }
+}
+
+@media only screen and (min-width: 451px) and (max-width: 850px) {
+  .collection-item-image-container {
+    padding: 0;
+    flex: unset;
+  }
+
+  .current-collection-item-image {
+    min-width: 70%;
+    min-height: 70%;
+    margin-bottom: 3em;
+    /* width: 100%; */
+
+    /* height: 100%; */
+  }
+
+  .collection-item {
+    flex-direction: column;
+    margin-top: 4em;
+    gap: 0;
+    height: calc(100% - 5em);
+  }
+
+  .collection-item-labels {
+    gap: 0.5em;
+    bottom: 0;
+  }
+
+  .collection-item-owner {
+    position: absolute;
+    right: 0;
+  }
+
+  .collection-item-info-container {
+    position: relative;
+    /* bottom: 2.5em; */
+    height: 100%;
+    flex: unset;
+  }
+
+  .collection-item-history-n-offers {
+    /* min-height: 100%; */
+  }
+}
+
+.collection-item-info-container.regular {
+  width: 30%;
+}
+
+@media only screen and (min-width: 451px) and (max-width: 850px) {
 }
