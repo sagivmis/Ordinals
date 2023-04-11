@@ -31,7 +31,7 @@
   width: 100%;
   max-height: 50%;
   flex: 1;
-  align-items: center;
+  /* align-items: center; */
 }
 
 .collection-item-image {
@@ -98,6 +98,43 @@ button.buy-item-small-btn:hover {
   color: var(--background-text);
   background-color: var(--background-main);
   transition: all 0.2s ease;
+}
+
+div.MuiTabs-root {
+  margin-top: 1em;
+  margin-bottom: 1em;
+  min-height: 38px;
+  width: fit-content;
+  align-self: center;
+}
+
+div.collection-tabs button.MuiTab-root {
+  color: var(--background-text);
+  min-height: 30px;
+  height: 30px;
+}
+
+div.collection-tabs button.MuiTab-root.Mui-selected {
+  z-index: 2;
+  color: var(--background-main);
+}
+
+span.MuiTabs-indicator {
+  display: flex;
+  justify-content: center;
+  background-color: rgba(255, 255, 255, 0.78);
+  height: 100%;
+  align-items: flex-end;
+  border-radius: 0.25em 0.25em 0.25em 0.25em;
+}
+
+span.MuiTabs-indicatorSpan {
+  height: 0.1em;
+  max-width: 40px;
+  width: 100%;
+  background-color: var(--background-main);
+  position: relative;
+  bottom: 0.5em;
 }
 
 @media only screen and (max-width: 450px) {
