@@ -1,0 +1,19 @@
+.back-btn-container,
+.home-btn-container {
+  position: absolute;
+  left: 2%;
+  top: 2%;
+}
+
+.profile-btn-container {
+  position: absolute;
+  right: 2%;
+  top: 2%;
+}
+
+.user-controls-container {
+  position: absolute;
+  top: 0;
+  width: 100%;
+  height: 100%;
+}

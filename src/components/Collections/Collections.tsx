@@ -7,6 +7,7 @@ import Avatar from "@mui/material/Avatar"
 import OrdinalSearch from "../OrdinalSearch"
 import { useNavigate } from "react-router-dom"
 import { CollectionType } from "../../types"
+import UserControls from "../UserControls"
 
 const collectionsColumns: GridColDef[] = [
   {
@@ -89,12 +90,7 @@ const Collections = () => {
 
   return (
     <div className='collections-container'>
-      <div className='back-btn-container'>
-        <Link to='/'>BACK</Link>
-      </div>
-      <div className='profile-btn-container'>
-        <Link to={`/profile`}>PROFILE</Link>
-      </div>
+      <UserControls home profile />
 
       <OrdinalSearch
         mode='collection'

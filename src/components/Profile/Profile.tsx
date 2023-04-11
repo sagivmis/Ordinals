@@ -1,15 +1,14 @@
 import React, { useContext } from "react"
 import { Link } from "react-router-dom"
 import { GlobalContext, IGlobalContext } from "../../context/GlobalContext"
+import UserControls from "../UserControls"
 import "./profile.css"
 
 const Profile = () => {
   const { userProfile } = useContext(GlobalContext) as IGlobalContext
   return (
     <div className='profile-container'>
-      <div className='back-btn-container'>
-        <Link to='/'>BACK</Link>
-      </div>
+      <UserControls home />
       <div className='profile-details-container'>
         <div className='profile-image'>
           <span className='dot' />

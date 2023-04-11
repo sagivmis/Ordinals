@@ -8,8 +8,6 @@ const HighlightedCollections = () => {
 
   const navigate = useNavigate()
 
-  const [carouselIndex, setCarouselIndex] = useState(0)
-
   const highlightedCollectionsRendered = useMemo(
     () =>
       highlightedCollections.map((highlightedCollection) => (
