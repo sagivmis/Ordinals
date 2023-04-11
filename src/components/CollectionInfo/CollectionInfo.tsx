@@ -9,7 +9,7 @@ import React, {
 } from "react"
 import { GlobalContext, IGlobalContext } from "../../context/GlobalContext"
 import { CollectionInfoType, CollectionItemType } from "../../types"
-import OrdinalSearch from "../../utilComponents/OrdinalSearch"
+import { OrdinalSearch } from "../../utilComponents"
 import "./collection-info.css"
 
 interface ICollectionInfo {

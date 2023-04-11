@@ -2,9 +2,9 @@ import { Button } from "@mui/material"
 import { DataGrid, GridColDef } from "@mui/x-data-grid"
 import clsx from "clsx"
 import React, { useContext, useEffect } from "react"
-import { Link, useParams } from "react-router-dom"
+import { useParams } from "react-router-dom"
 import { GlobalContext, IGlobalContext } from "../../../context/GlobalContext"
-import UserControls from "../../../utilComponents/UserControls"
+import { UserControls } from "../../../utilComponents"
 
 const offersColumns: GridColDef[] = [
   {
