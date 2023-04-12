@@ -56,7 +56,10 @@ const Collection = () => {
         <Link to={`/profile`}>PROFILE</Link>
       </div>
       <CollectionInfo setFilteredID={setFilteredID} />
-      <CollectionItems filteredCurrentCollection={filteredCurrentCollection} />
+      <CollectionItems
+        filteredCurrentCollection={filteredCurrentCollection}
+        setFilteredCurrentCollection={setFilteredCurrentCollection}
+      />
     </div>
   )
 }

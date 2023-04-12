@@ -26,14 +26,14 @@ interface Props {
 const dummyPhoenixData: CollectionItemType[] = [
   {
     id: 1,
-    price: 2,
+    price: 1,
     history: [{ price: 0.5, date: "date", from: "0x8484848" }],
     owner: "0x121212",
     image: phoenixParrots
   },
   {
     id: 2,
-    price: 3,
+    price: 0.3,
     history: [
       { price: 0.2, date: "date", from: "0x8484848" },
       { price: 0.25, date: "date", from: "0x8482333" },
@@ -44,7 +44,7 @@ const dummyPhoenixData: CollectionItemType[] = [
   },
   {
     id: 3,
-    price: 2,
+    price: 0.2,
     history: [
       { price: 0.1, date: "date", from: "0x8484848" },
       { price: 0.15, date: "date", from: "0x8482333" },

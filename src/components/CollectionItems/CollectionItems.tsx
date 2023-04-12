@@ -1,5 +1,21 @@
-import { Box, Button, Tab, Tabs } from "@mui/material"
-import React, { useContext, useState } from "react"
+import {
+  Box,
+  Button,
+  FormControl,
+  InputLabel,
+  MenuItem,
+  Select,
+  SelectChangeEvent,
+  Tab,
+  Tabs
+} from "@mui/material"
+import React, {
+  Dispatch,
+  SetStateAction,
+  useContext,
+  useEffect,
+  useState
+} from "react"
 import { useNavigate } from "react-router-dom"
 import { GlobalContext, IGlobalContext } from "../../context/GlobalContext"
 import { CollectionType } from "../../types"
@@ -8,17 +24,18 @@ import { TabPanel } from "../../utilComponents"
 
 interface ICollectionItems {
   filteredCurrentCollection: CollectionType
+  setFilteredCurrentCollection: Dispatch<SetStateAction<CollectionType>>
 }
 
 const CollectionItems = (props: ICollectionItems) => {
-  const { filteredCurrentCollection } = props
+  const { filteredCurrentCollection, setFilteredCurrentCollection } = props
   let navigate = useNavigate()
   const { setCurrentItem, currentCollection } = useContext(
     GlobalContext
   ) as IGlobalContext
   const [tabIndex, setTabIndex] = useState(0)
 
-  const handleChange = (event: React.SyntheticEvent, newValue: number) => {
+  const handleTabChange = (event: React.SyntheticEvent, newValue: number) => {
     setTabIndex(newValue)
   }
 
@@ -28,12 +45,39 @@ const CollectionItems = (props: ICollectionItems) => {
       "aria-controls": `tabpanel-${index}`
     }
   }
+  type SortType = "low2high" | "high2low" | "id" | ""
+  const [sortBy, setSortBy] = useState<SortType>("")
+
+  const handleSortTypeChange = (event: SelectChangeEvent) => {
+    setSortBy(event.target.value as SortType)
+    const sortedCollection = filteredCurrentCollection
+    if (event.target.value === "low2high") {
+      sortedCollection.data.sort((a, b) => a.price - b.price)
+      setFilteredCurrentCollection(sortedCollection)
+    }
+    if (event.target.value === "high2low") {
+      sortedCollection.data.sort((a, b) => b.price - a.price)
+      setFilteredCurrentCollection(sortedCollection)
+    }
+    if (event.target.value === "id") {
+      sortedCollection.data.sort((a, b) => a.id - b.id)
+      setFilteredCurrentCollection(sortedCollection)
+    }
+  }
+
+  useEffect(() => {
+    console.log("initial sort")
+
+    let sortedCollection: CollectionType = filteredCurrentCollection
+    sortedCollection.data.sort((a, b) => a.id - b.id)
+    setFilteredCurrentCollection(sortedCollection)
+  }, [filteredCurrentCollection, setFilteredCurrentCollection])
 
   return (
     <div className='collection-items-container'>
       <Tabs
         value={tabIndex}
-        onChange={handleChange}
+        onChange={handleTabChange}
         TabIndicatorProps={{
           children: <span className='MuiTabs-indicatorSpan' />
         }}
@@ -45,6 +89,32 @@ const CollectionItems = (props: ICollectionItems) => {
       </Tabs>
 
       <TabPanel value={tabIndex} index={0}>
+        <Box
+          sx={{
+            minWidth: 35,
+            maxWidth: "3%",
+            m: 1,
+            position: "fixed",
+            right: "1em",
+            zIndex: 2
+          }}
+        >
+          <FormControl fullWidth>
+            <Select
+              value={sortBy}
+              onChange={handleSortTypeChange}
+              disableUnderline
+              displayEmpty
+              defaultValue='id'
+              size='small'
+            >
+              <MenuItem value={"low2high"}>Price: Low to High</MenuItem>
+              <MenuItem value={"high2low"}>Price: High to Low</MenuItem>
+              <MenuItem value={"id"}>Inscription ID#</MenuItem>
+            </Select>
+          </FormControl>
+        </Box>
+
         <div className='collection-items'>
           {filteredCurrentCollection.data?.map((currentCollectionItem) => (
             <div className='current-collection-item-container'>

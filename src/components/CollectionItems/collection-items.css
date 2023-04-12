@@ -137,6 +137,15 @@ span.MuiTabs-indicatorSpan {
   bottom: 0.5em;
 }
 
+div.Mui-focused fieldset.MuiOutlinedInput-notchedOutline {
+  border-color: var(--background-text) !important;
+  border-width: 1px !important;
+}
+
+div.Mui-focused svg.MuiSvgIcon-root {
+  fill: var(--background-text);
+}
+
 @media only screen and (max-width: 450px) {
   .current-collection-item-container {
     width: 80px;

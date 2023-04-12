@@ -1,5 +1,5 @@
 import React from "react"
-
+import "./tabpanel.css"
 interface ITabPanel {
   children?: React.ReactNode
   index: number
@@ -15,8 +15,8 @@ const TabPanel = (props: ITabPanel) => {
       hidden={value !== index}
       id={`tabpanel-${index}`}
       aria-labelledby={`tab-${index}`}
-      style={{ overflowY: "auto" }}
       className={`tabpanel`}
+      style={{ overflowY: "auto" }}
       {...other}
     >
       {value === index && children}
