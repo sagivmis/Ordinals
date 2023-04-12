@@ -61,7 +61,7 @@
   justify-content: center;
   display: inline-flex;
   padding: 0.5em;
-  padding-bottom: 5em;
+  padding-bottom: 4em;
   max-width: 9.5em;
   flex-direction: column;
   position: relative;
@@ -144,6 +144,12 @@ div.Mui-focused fieldset.MuiOutlinedInput-notchedOutline {
 
 div.Mui-focused svg.MuiSvgIcon-root {
   fill: var(--background-text);
+}
+
+h5.inscription-id {
+  margin: 0;
+  margin-top: 1.5em;
+  align-self: flex-start;
 }
 
 @media only screen and (max-width: 450px) {

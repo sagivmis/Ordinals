@@ -92,7 +92,7 @@ const CollectionItems = (props: ICollectionItems) => {
         <Box
           sx={{
             minWidth: 35,
-            maxWidth: "3%",
+            maxWidth: "8%",
             m: 1,
             position: "fixed",
             right: "1em",
@@ -104,9 +104,10 @@ const CollectionItems = (props: ICollectionItems) => {
               value={sortBy}
               onChange={handleSortTypeChange}
               disableUnderline
-              displayEmpty
+              // displayEmpty
               defaultValue='id'
               size='small'
+              // multiline
             >
               <MenuItem value={"low2high"}>Price: Low to High</MenuItem>
               <MenuItem value={"high2low"}>Price: High to Low</MenuItem>
@@ -131,6 +132,7 @@ const CollectionItems = (props: ICollectionItems) => {
                   navigate(`./${currentCollectionItem.id}`)
                 }}
               />
+              <h5 className='inscription-id'>{`${currentCollection.name} #${currentCollectionItem.id}`}</h5>
               <div className='item-details'>
                 <h6 className='item-price'>
                   {currentCollectionItem.price} BTC
