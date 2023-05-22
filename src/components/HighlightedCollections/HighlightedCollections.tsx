@@ -1,10 +1,13 @@
 import React, { useContext, useMemo, useState } from "react"
 import { useNavigate } from "react-router-dom"
-import { GlobalContext, IGlobalContext } from "../../context/GlobalContext"
+import {
+  CollectionContext,
+  ICollectionContext
+} from "../../context/CollectionContext"
 
 const HighlightedCollections = () => {
   const { highlightedCollections, setCurrentCollection, collections } =
-    useContext(GlobalContext) as IGlobalContext
+    useContext(CollectionContext) as ICollectionContext
 
   const navigate = useNavigate()
 

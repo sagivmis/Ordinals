@@ -6,16 +6,20 @@ import React, {
   useState
 } from "react"
 import { Link, useParams } from "react-router-dom"
-import { GlobalContext, IGlobalContext } from "../../context/GlobalContext"
-import { CollectionItemType, CollectionType } from "../../types"
+import {
+  CollectionContext,
+  ICollectionContext
+} from "../../context/CollectionContext"
+import { CollectionItemType } from "../../types"
 import CollectionInfo from "../CollectionInfo"
 import CollectionItems from "../CollectionItems"
 import "./collection.css"
 
 const Collection = () => {
   const { collections, currentCollection, setCurrentCollection } = useContext(
-    GlobalContext
-  ) as IGlobalContext
+    CollectionContext
+  ) as ICollectionContext
+
   const [filteredID, setFilteredID] = useState("")
   const { collectionId } = useParams()
   const currentCollectionId = useRef<number>()

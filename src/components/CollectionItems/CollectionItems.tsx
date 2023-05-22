@@ -18,6 +18,10 @@ import React, {
 } from "react"
 import { useNavigate } from "react-router-dom"
 import { GlobalContext, IGlobalContext } from "../../context/GlobalContext"
+import {
+  CollectionContext,
+  ICollectionContext
+} from "../../context/CollectionContext"
 import { CollectionType } from "../../types"
 import "./collection-items.css"
 import { TabPanel } from "../../utilComponents"
@@ -30,9 +34,12 @@ interface ICollectionItems {
 const CollectionItems = (props: ICollectionItems) => {
   const { filteredCurrentCollection, setFilteredCurrentCollection } = props
   let navigate = useNavigate()
-  const { setCurrentItem, currentCollection } = useContext(
-    GlobalContext
-  ) as IGlobalContext
+
+  const { setCurrentItem } = useContext(GlobalContext) as IGlobalContext
+  const { currentCollection } = useContext(
+    CollectionContext
+  ) as ICollectionContext
+
   const [tabIndex, setTabIndex] = useState(0)
 
   const handleTabChange = (event: React.SyntheticEvent, newValue: number) => {

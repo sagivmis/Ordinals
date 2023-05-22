@@ -1,6 +1,4 @@
-import React, { useContext, useEffect } from "react"
-import { useParams, Link } from "react-router-dom"
-import { GlobalContext, IGlobalContext } from "../../context/GlobalContext"
+import React from "react"
 import MediaQuery from "react-responsive"
 import "./collection-item.css"
 import CollectionItemVariation from "./CollectionItemVariation"

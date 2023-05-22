@@ -4,6 +4,10 @@ import clsx from "clsx"
 import React, { useContext, useEffect } from "react"
 import { useParams } from "react-router-dom"
 import { GlobalContext, IGlobalContext } from "../../../context/GlobalContext"
+import {
+  CollectionContext,
+  ICollectionContext
+} from "../../../context/CollectionContext"
 import { UserControls } from "../../../utilComponents"
 
 const offersColumns: GridColDef[] = [
@@ -26,21 +30,21 @@ const historyColumns: GridColDef[] = [
   { field: "from", headerName: "From", flex: 1 }
 ]
 
-interface ICollecionItemVariation {
+interface ICollecitonItemVariation {
   size: "mobile" | "small" | "regular" | "big"
 }
 
-const CollectionItemVariation = (props: ICollecionItemVariation) => {
+const CollectionItemVariation = (props: ICollecitonItemVariation) => {
   const { size } = props
   let { collectionId, itemId } = useParams()
 
-  const {
-    currentCollection,
-    currentItem,
-    setCurrentItem,
-    setCurrentCollection,
-    collections
-  } = useContext(GlobalContext) as IGlobalContext
+  const { setCurrentItem, currentItem } = useContext(
+    GlobalContext
+  ) as IGlobalContext
+
+  const { currentCollection, setCurrentCollection, collections } = useContext(
+    CollectionContext
+  ) as ICollectionContext
 
   useEffect(() => {
     setCurrentItem(

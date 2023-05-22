@@ -7,7 +7,10 @@ import React, {
   useRef,
   useState
 } from "react"
-import { GlobalContext, IGlobalContext } from "../../context/GlobalContext"
+import {
+  CollectionContext,
+  ICollectionContext
+} from "../../context/CollectionContext"
 import { CollectionInfoType, CollectionItemType } from "../../types"
 import { OrdinalSearch } from "../../utilComponents"
 import "./collection-info.css"
@@ -18,7 +21,9 @@ interface ICollectionInfo {
 
 const CollectionInfo = (props: ICollectionInfo) => {
   const { setFilteredID } = props
-  const { currentCollection } = useContext(GlobalContext) as IGlobalContext
+  const { currentCollection } = useContext(
+    CollectionContext
+  ) as ICollectionContext
 
   const [floorPrice, setFloorPrice] = useState(0)
   const [ownersAmount, setOwnersAmount] = useState(0)

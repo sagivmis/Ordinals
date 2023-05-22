@@ -1,7 +1,9 @@
 import React, { useCallback, useContext, useEffect, useState } from "react"
 import "./collections.css"
-import { GlobalContext, IGlobalContext } from "../../context/GlobalContext"
-import { Link } from "react-router-dom"
+import {
+  CollectionContext,
+  ICollectionContext
+} from "../../context/CollectionContext"
 import { DataGrid, GridColDef } from "@mui/x-data-grid"
 import Avatar from "@mui/material/Avatar"
 import { OrdinalSearch, UserControls } from "../../utilComponents"
@@ -59,8 +61,8 @@ const collectionsColumns: GridColDef[] = [
 const Collections = () => {
   let navigate = useNavigate()
   const { collections, setCurrentCollection } = useContext(
-    GlobalContext
-  ) as IGlobalContext
+    CollectionContext
+  ) as ICollectionContext
 
   const [searchOpen, setSearchOpen] = useState(false)
   const [filterBy, setFilterBy] = useState<"name" | "address">("address")
